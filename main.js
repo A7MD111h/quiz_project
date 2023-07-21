@@ -307,6 +307,3 @@ startBtn.onclick = () =>{
 
 
 
-
-
-

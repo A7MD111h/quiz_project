@@ -481,4 +481,11 @@ border-color: #950170;
 
 
 
-
+.option-list .option.incorrect {
+    background:  #09001d;
+    color: #a60045;
+    border-color: #a60045;
+}
+.option-list .option.disabled {
+    pointer-events: none;
+}
