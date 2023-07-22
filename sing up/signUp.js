@@ -17,7 +17,7 @@ form.addEventListener('submit', function (e) {
   validateForm();
 });
 function validateForm() {
-    resetErrors();
+    resetErrors();  
     const firstNamePattern = /^[A-Za-z]+$/;
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,32}$/;
     let valid = true;
@@ -61,6 +61,7 @@ function validateForm() {
   
     localStorage.setItem('userData',JSON.stringify(userData));
   }
+  
   
       function isValidDate(dateString) {
         const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
