@@ -74,7 +74,8 @@ function login() {
     if (storedUserData) {
         
         if (email === storedUserData.Email && password === storedUserData.Password) {
-            alert('done')
+            window.location.href = '/index.html';  // Replace 'main-page.html' with the actual URL of your main page
+            
             return true
         } else {
             alert('Invalid email or password.');
@@ -93,6 +94,7 @@ let buttonlogin = document.querySelector("#loginbtn")
 buttonlogin.addEventListener('click', (e)=> {
     
     if (!login()){ 
+        e.preventDefault(); // prevent form from submitting when error occurs during validation
     }
     else{
         console.log(`clicked`);
