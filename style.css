@@ -81,6 +81,7 @@ justify-content: center;
 align-items: center;
 
 }
+
 .home-content{
 max-width: 600px;
 display: flex;
@@ -88,6 +89,8 @@ display: flex;
 align-items: center;
 flex-direction: column;
 }
+
+
 .home-content h1{
 font-size:78px ;
 font-weight: 700;
@@ -250,7 +253,7 @@ border-color: #950170;
     border-radius: 6px;
 }
 
-.quiz-box .quiz-header{
+ .quiz-box .quiz-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -264,7 +267,7 @@ border-color: #950170;
     font-weight: 500;
 }
 
-.quiz-header .header-score{
+.quiz-header #count-down{
     background: #c40094;
     border-radius: 3px;
     padding: 7px;

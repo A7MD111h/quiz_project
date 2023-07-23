@@ -80,16 +80,40 @@ function optionSelected (answer) {
     }
 }
 
-
-
-
-
 function questionCounter(index){
     const questionTotal = document.querySelector('.question-total');
     questionTotal.textContent = `${index} of ${questions.length} Questions`
 
 }
+const StringMinutes = 10;
+let time = StringMinutes*60;
+const countdownEl = document.getElementById("count-down");
 
+setInterval(UpdateCountdown, 1000);
+
+function UpdateCountdown(){
+const minutes =Math.floor(time / 60);
+let seconds =time % 60;
+seconds= seconds < 10 ?'0'+seconds :seconds;
+    time--;
+    countdownEl.innerHTML= '${minutes}:${seconds}';
+}
+// $(function (){
+// //timer code start
+// let totalTime=200;
+// let min =0;
+// let sec=0;
+// let counter=0;
+// let timer=setInterval(function (){
+//     counter++;
+//     min=Math.floor((totalTime-counter) /60);
+//     sec= totalTime-min*60-counter;
+//     console.log(min);
+//     console.log(sec);
+
+// },1000)
+
+// })
 
 
 
