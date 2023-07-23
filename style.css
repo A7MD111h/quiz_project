@@ -287,8 +287,8 @@ body {
 
 .option-list .option.correct {
     background: #09001d;
-    color: #00a63d;
-    border-color: #00a63d;
+    color: #e5ffee;
+    border-color: #e5ffee;
     }
 
 .option-list .option.incorrect {
@@ -444,3 +444,4 @@ body {
     background: #c40094;
     color: #fff;
 }
+/* hi */
