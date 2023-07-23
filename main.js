@@ -163,3 +163,29 @@ function showResultBox() {
         }
     }, speed);
 }
+// hi
+const StringMinutes = 0.5;
+let time = StringMinutes*60;
+const countdownEl = document.getElementById('cutdown');
+
+let x= setInterval(UpdateCountdown, 1000);
+
+function UpdateCountdown(){
+
+    const minutes =Math.floor(time / 60);
+
+let seconds =time % 60;
+
+seconds= seconds < 10 ?'0'+seconds :seconds;   
+ 
+countdownEl.innerHTML= `${minutes} : ${seconds}`;
+ 
+    time--;
+
+   if(time==-1)
+   {
+    clearInterval(x)
+showResultBox()    
+   }
+}
+
