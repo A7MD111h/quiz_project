@@ -31,7 +31,7 @@ function register()
              
      // check email 
      if (!emailRegex.test(email)) {
-         //console.log('Invalid email format.');
+         console.log('Invalid email format.');
         // document.getElementById('emailError').innerHTML='Invalid email format.';
          return false;
      }
@@ -62,14 +62,27 @@ function register()
     return true;
 }
    
-           
+    
+
+let buttonsignUp2 = document.querySelector("#submitup");
+
+buttonsignUp2.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (!register()) {
+
+        console.log("Login failed.");
+    } else {
+        console.log("login succes");
+        window.location.href = "../index.html";
+    }
+});       
 
  
 // LOGIN FUNCTION
 function login() {
     let email = document.getElementById('emailIn').value;
     let password = document.getElementById('passwordIn').value;
-    let ahmed = document.getElementById('submitin');
+   
 
     let storedUserData = JSON.parse(localStorage.getItem('userData'));
 
@@ -79,7 +92,7 @@ function login() {
             // function myFunction() {
             //     window.location.href = "/index.html";
             //   }
-            //alert('done')
+            // alert('done')
             return true
         } else {
             alert('Invalid email or password.');
@@ -93,19 +106,35 @@ function login() {
 }
 
 // login btn navgate to homepage
-           
-let buttonlogin = document.querySelector("#loginbtn")
-buttonlogin.addEventListener('click', (e)=> {
-    
-    if (!login()){ 
-       //window.location.href = '/index.html'
-       e.preventDefault()
+
+
+let buttonlogin = document.querySelector("#submitin");
+
+buttonlogin.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (!login()) {
+        
+        console.log("Login failed.");
+    } else {
+        console.log("login succes");
+        window.location.href = "../index.html";
     }
-    else{
-        console.log(`clicked`);
-    }
-})
+});
+
+
+//let buttonlogin = document.querySelector("#submitin")
+// buttonlogin.addEventListener('submit', (e)=> {
+//     console.log('clicked ?');
+//      e.preventDefault()
+//     if (!login()){ 
+//        //window.location.href = '/index.html'
+//        alert('loooool')
+//     }
+//     else{
+//         window.location.href = '../index.html'
+//         console.log(`clicked`);
+//     }
+// })
 
 
 
-      
