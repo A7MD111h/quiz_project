@@ -60,6 +60,7 @@ let questionCount = 0;
 let questionNumb = 1;
 let userScore = 0;
 
+
 const nextBtn = document.querySelector('.next-btn');
 
 nextBtn.onclick = () => {
@@ -85,10 +86,10 @@ function showQuestions(index) {
     const questionText = document.querySelector('.question-text');
     questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
 
-    let optionTag= `<div class="option"><span>${questions[index].options[0]}</span></div>
-    <div class="option"><span>${questions[index].options[1]}</span></div>
-    <div class="option"><span>${questions[index].options[2]}</span></div>
-    <div class="option"><span>${questions[index].options[3]}</span></div>`;
+    let optionTag= `<div class="option"><pre><span>${questions[index].options[0]}</span></pre></div>
+    <div class="option"><pre><span>${questions[index].options[1]}</span></pre></div>
+    <div class="option"><pre><span>${questions[index].options[2]}</span></pre></div>
+    <div class="option"><pre><span>${questions[index].options[3]}</span></pre></div>`;
 
     optionList.innerHTML = optionTag;
 
@@ -143,7 +144,7 @@ function showResultBox() {
     resultBox.classList.add('active');
 
     const scoreText = document.querySelector('.score-text');
-    scoreText.textContent = `Your Score ${userScore} out of ${question.length}`;
+    scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
 
     const circularProgress = document.querySelector('.circular-progress');
     const progressValue = document.querySelector('.progress-value');
