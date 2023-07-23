@@ -12,24 +12,27 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-            <!-- Sign-in form -->
-          <form  class="sign-in-form" id="sign-in-form" onsubmit="return login() ">
+            <!-- Sign-in form  onsubmit="return login() "-->
+          <form  class="sign-in-form" id="sign-in-form"  >
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="email" placeholder="Email" id="emailIn" />
+              <input type="email" placeholder="Email" id="emailIn" required/>
+              
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" id="passwordIn" />
+              <input type="password" placeholder="Password" id="passwordIn" required/>
             </div>
-            <input type="submit" value="Login" class="btn solid" id="submitin" />
             <a href="/index.html" id="loginbtn">
-                <p class="forget_password">forget password</p>
+            <input type="button" value="Login" class="btn solid" id="submitin"  />
+              
+                <div class="error-message" id="emailError"></div>
             </a>    
+                <p class="forget_password">forget password</p>
           </form>
-          <!-- Sign-up form -->
-          <form action="#" class="sign-up-form"  id="sign-up-form" onsubmit="return register()">
+          <!-- Sign-up form onsubmit="return register()"-->
+          <form action="#" class="sign-up-form"  id="sign-up-form" >
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -44,7 +47,7 @@
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="confirm Email" id="confirmEmail"/>
-              <div class="error-message" id="confirmEmailError"></div>
+              <div class="error-message" id="confirmEmailError">ajemd</div>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
@@ -66,7 +69,7 @@
               </select>
           </div>
             <a href="/index.html">
-              <input type="submit" class="btn" value="Sign up" id="submit" />
+              <input type="button" class="btn" value="Sign up" id="submitup" />
             </a>
           </form>
         </div>
@@ -129,6 +132,9 @@ form.addEventListener('submit', function (e) {
     signInForm.style.display = 'block';
   });
 */
+function myFunction() {
+      window.location.href = "/index.html";
+    }
 </script>
 
 </html>
