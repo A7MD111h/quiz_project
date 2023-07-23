@@ -12,20 +12,23 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-            <!-- Sign-in form -->
-          <form  class="sign-in-form" id="sign-in-form" onsubmit="return login() ">
+            <!-- Sign-in form  onsubmit="return login() "-->
+          <form  class="sign-in-form" id="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="email" placeholder="Email" id="emailIn" />
+              
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" id="passwordIn" />
             </div>
             <a href="/index.html" id="loginbtn">
-            <input type="submit" value="Login" class="btn solid" id="submitin" />
-        </a>    
+            <input type="submit" value="Login" class="btn solid" id="submitin"  />
+              
+                <div class="error-message" id="emailError"></div>
+            </a>    
                 <p class="forget_password">forget password</p>
           </form>
           <!-- Sign-up form -->
@@ -44,7 +47,7 @@
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="confirm Email" id="confirmEmail"/>
-              <div class="error-message" id="confirmEmailError"></div>
+              <div class="error-message" id="confirmEmailError">ajemd</div>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
@@ -129,6 +132,9 @@ form.addEventListener('submit', function (e) {
     signInForm.style.display = 'block';
   });
 */
+function myFunction() {
+      window.location.href = "/index.html";
+    }
 </script>
 
 </html>

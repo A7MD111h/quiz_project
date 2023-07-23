@@ -275,6 +275,10 @@ border-color: #950170;
     font-weight: 600;
 }
 
+.option-list{
+    display: grid;
+    grid-template-columns: auto auto;
+}
 .option-list .option{
     width: 100%;
     padding: 12px;

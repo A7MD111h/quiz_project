@@ -31,13 +31,16 @@ function register()
              
      // check email 
      if (!emailRegex.test(email)) {
-         console.log('Invalid email format.');
+         //console.log('Invalid email format.');
+        // document.getElementById('emailError').innerHTML='Invalid email format.';
          return false;
      }
 
       //check email
     if (email !== confirmEmail) {
         console.log('Emails do not match.');
+       // document.getElementById('confirmEmailError').innerHTML='Invalid email format.';
+
         return false;
     }
  
@@ -66,16 +69,17 @@ function register()
 function login() {
     let email = document.getElementById('emailIn').value;
     let password = document.getElementById('passwordIn').value;
-
+    let ahmed = document.getElementById('submitin');
 
     let storedUserData = JSON.parse(localStorage.getItem('userData'));
 
-    
     if (storedUserData) {
         
         if (email === storedUserData.Email && password === storedUserData.Password) {
-            window.location.href = '/index.html';  // Replace 'main-page.html' with the actual URL of your main page
-            
+            // function myFunction() {
+            //     window.location.href = "/index.html";
+            //   }
+            //alert('done')
             return true
         } else {
             alert('Invalid email or password.');
@@ -94,7 +98,8 @@ let buttonlogin = document.querySelector("#loginbtn")
 buttonlogin.addEventListener('click', (e)=> {
     
     if (!login()){ 
-        e.preventDefault(); // prevent form from submitting when error occurs during validation
+       //window.location.href = '/index.html'
+       e.preventDefault()
     }
     else{
         console.log(`clicked`);
