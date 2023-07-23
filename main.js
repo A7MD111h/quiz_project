@@ -60,6 +60,7 @@ let questionCount = 0;
 let questionNumb = 1;
 let userScore = 0;
 
+
 const nextBtn = document.querySelector('.next-btn');
 
 nextBtn.onclick = () => {
@@ -143,7 +144,7 @@ function showResultBox() {
     resultBox.classList.add('active');
 
     const scoreText = document.querySelector('.score-text');
-    scoreText.textContent = `Your Score ${userScore} out of ${question.length}`;
+    scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
 
     const circularProgress = document.querySelector('.circular-progress');
     const progressValue = document.querySelector('.progress-value');
@@ -162,4 +163,3 @@ function showResultBox() {
         }
     }, speed);
 }
-// hi
