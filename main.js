@@ -164,7 +164,7 @@ function showResultBox() {
     }, speed);
 }
 // hi
-const StringMinutes = 1;
+const StringMinutes = 0.5;
 let time = StringMinutes*60;
 const countdownEl = document.getElementById('cutdown');
 
