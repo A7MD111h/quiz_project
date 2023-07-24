@@ -218,9 +218,9 @@ function showResultBox() {
 
 // hi
 
-const StringMinutes = 1;
-let time = StringMinutes*60;
-const countdownEl = document.getElementById('cutdown');
+// const StringMinutes = 1;
+// let time = StringMinutes*60;
+// const countdownEl = document.getElementById('cutdown');
 
 
     
