@@ -6,11 +6,11 @@ const continueBtn = document.querySelector('.continue-btn');
 const quizSection = document.querySelector('.quiz-section');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
-const tryAgainBtn = document.querySelector('.tryAgain-btn');
+// const tryAgainBtn = document.querySelector('.tryAgain-btn');
 const goHomeBtn = document.querySelector('.goHome-btn');
 const userData = JSON.parse(localStorage.getItem('userData'));
-let countQt=1;
 
+let countQt=1;
 //userData.position="JAVASCRIPT";
 //HTML
 //CSS
@@ -55,20 +55,20 @@ continueBtn.onclick = () => {
    headerScore();
 }
 
-tryAgainBtn.onclick = () => {
-    quizBox.classList.add('active');
-    nextBtn.classList.remove('active');
-    resultBox.classList.remove('active');
+// tryAgainBtn.onclick = () => {
+//     quizBox.classList.add('active');
+//     nextBtn.classList.remove('active');
+//     resultBox.classList.remove('active');
 
-    questionCount = questionCount-9;
-    questionNumb = 1;
-    userScore = 0;
-    countQt=1;
-    showQuestions(questionCount);
-    questionCounter(questionNumb);
-    headerScore();
+//     questionCount = questionCount-9;
+//     questionNumb = 1;
+//     userScore = 0;
+//     countQt=1;
+//     showQuestions(questionCount);
+//     questionCounter(questionNumb);
+//     headerScore();
     
-}
+// }
 
 goHomeBtn.onclick = () => {
     quizSection.classList.remove('active');
@@ -81,6 +81,8 @@ goHomeBtn.onclick = () => {
     countQt=1;
     showQuestions(questionCount);
     questionCounter(questionNumb);
+    //to hide button start quize when go to home page 
+hide();
 }
 
 
@@ -218,9 +220,6 @@ function showResultBox() {
 
 // hi
 
-const StringMinutes = 1;
-let time = StringMinutes*60;
-const countdownEl = document.getElementById('cutdown');
 
 
     
@@ -251,4 +250,9 @@ counting.innerHTML=` ${min}:${sec}`;
 startCountdown();
 
 
+//
+function hide() {
+startBtn.style.display="none"
+
+}
 
