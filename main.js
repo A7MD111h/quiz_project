@@ -8,15 +8,40 @@ const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
 const tryAgainBtn = document.querySelector('.tryAgain-btn');
 const goHomeBtn = document.querySelector('.goHome-btn');
+const userData = JSON.parse(localStorage.getItem('userData'));
+let countQt=1;
+
+//userData.position="JAVASCRIPT";
+//HTML
+//CSS
+//JAVASCRIPT
+//ENGLISH
 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
-    main.classList.add('active')
+    main.classList.add('active');
+
 }
 
 exitBtn.onclick = () => {
     popupInfo.classList.remove('active');
     main.classList.remove('active')
+}
+
+let questionCount ;
+if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
+    questionCount = 0;
+}
+else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
+    questionCount = 10;
+}
+
+else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
+    questionCount = 20;
+    
+}
+else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
+    questionCount = 30;
 }
 
 continueBtn.onclick = () => {
@@ -25,7 +50,7 @@ continueBtn.onclick = () => {
    main.classList.remove('active');
    quizBox.classList.add('active');
 
-   showQuestions(0);
+   showQuestions(questionCount);
    questionCounter(1);
    headerScore();
 }
@@ -35,9 +60,10 @@ tryAgainBtn.onclick = () => {
     nextBtn.classList.remove('active');
     resultBox.classList.remove('active');
 
-    questionCount = 0;
+    questionCount = questionCount-9;
     questionNumb = 1;
     userScore = 0;
+    countQt=1;
     showQuestions(questionCount);
     questionCounter(questionNumb);
     headerScore();
@@ -49,30 +75,49 @@ goHomeBtn.onclick = () => {
     nextBtn.classList.remove('active');
     resultBox.classList.remove('active');
 
-    questionCount = 0;
+    questionCount = questionCount;
     questionNumb = 1;
     userScore = 0;
+    countQt=1;
     showQuestions(questionCount);
     questionCounter(questionNumb);
 }
 
-let questionCount = 0;
+
+
 let questionNumb = 1;
 let userScore = 0;
-
 
 const nextBtn = document.querySelector('.next-btn');
 
 nextBtn.onclick = () => {
-    if (questionCount < questions.length - 1) {
+    let questionLooper ;
+    
+  if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
+        console.log(true);
+        questionLooper=9;
+    }
+  else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
+        questionLooper=19;
+    }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
+        questionLooper=29;
+        
+    }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
+       questionLooper=39;
+    }
+
+    console.log(questionLooper);  
+    console.log(questionCount);  
+
+    if (questionCount < questionLooper ) {
         questionCount++;
         showQuestions(questionCount);
-
         questionNumb++;
         questionCounter(questionNumb);
 
-        nextBtn.classList.remove('active');
-
+       nextBtn.classList.remove('active');
     }
     else {
         showResultBox();
@@ -82,22 +127,27 @@ nextBtn.onclick = () => {
 const optionList = document.querySelector('.option-list');
 
 // getting questions and options from array
-function showQuestions(index) {
+
+
+    function showQuestions(index) {
+
     const questionText = document.querySelector('.question-text');
-    questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
+    questionText.textContent = `${countQt++}.${questions[index].question}`;
 
     let optionTag= `<div class="option"><pre><span>${questions[index].options[0]}</span></pre></div>
-    <div class="option"><pre><span>${questions[index].options[1]}</span></pre></div>
-    <div class="option"><pre><span>${questions[index].options[2]}</span></pre></div>
-    <div class="option"><pre><span>${questions[index].options[3]}</span></pre></div>`;
+                    <div class="option"><pre><span>${questions[index].options[1]}</span></pre></div>
+                    <div class="option"><pre><span>${questions[index].options[2]}</span></pre></div>
+                    <div class="option"><pre><span>${questions[index].options[3]}</span></pre></div>`;
 
     optionList.innerHTML = optionTag;
-
-    const option = document.querySelectorAll('.option');
-    for (let i = 0; i < option.length; i++) {
+        const option = document.querySelectorAll('.option');
+     for (let i = 0; i < option.length; i++) {
         option[i].setAttribute('onclick', 'optionSelected(this)');
     }
+    
 }
+
+
 
 function optionSelected (answer) {
     let userAnswer = answer.textContent;
@@ -113,6 +163,7 @@ function optionSelected (answer) {
         answer.classList.add ('incorrect')
 
         // if answer incorrest, auto selected correct answer
+        
         for (let i = 0; i < allOptions; i++){
             if (optionList.children[i].textContent == correctAnswer) {
                 optionList.children[i].setAttribute('class', 'option correct');
@@ -130,13 +181,13 @@ function optionSelected (answer) {
 
 function questionCounter(index){
     const questionTotal = document.querySelector('.question-total');
-    questionTotal.textContent = `${index} of ${questions.length} Questions`
+    questionTotal.textContent = `${index} of 10 Questions`
 
 }
 
 function headerScore(){
     const headerScoreText = document.querySelector('.header-score');
-    headerScoreText.textContent = `Score: ${userScore} / ${questions.length}`;
+    headerScoreText.textContent = `Score: ${userScore} / 10`;
 }
 
 function showResultBox() {
@@ -144,12 +195,12 @@ function showResultBox() {
     resultBox.classList.add('active');
 
     const scoreText = document.querySelector('.score-text');
-    scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
+    scoreText.textContent = `Your Score ${userScore} out of 10`;
 
     const circularProgress = document.querySelector('.circular-progress');
     const progressValue = document.querySelector('.progress-value');
     let progressStartValue = -1;
-    let progressEndValue = (userScore / questions.length) * 100;
+    let progressEndValue = (userScore / 10) * 100;
     let speed = 20;
 
     let progress = setInterval(() => {
@@ -164,7 +215,13 @@ function showResultBox() {
     }, speed);
     
 }
+
 // hi
+
+const StringMinutes = 1;
+let time = StringMinutes*60;
+const countdownEl = document.getElementById('cutdown');
+
 
     
 
@@ -187,6 +244,7 @@ let sec=Math.floor(quizeTime %60);
 let min=Math.floor(quizeTime/60)%60;
 counting.innerHTML=` ${min}:${sec}`;
 
+
 }
     },1000)
 }
@@ -194,5 +252,3 @@ startCountdown();
 
 
 
-
-// document.getElementById("result").innerHTML=localStorage.getItem("textvalue");
