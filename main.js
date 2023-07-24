@@ -66,8 +66,8 @@ tryAgainBtn.onclick = () => {
     countQt=1;
     showQuestions(questionCount);
     questionCounter(questionNumb);
-
     headerScore();
+    
 }
 
 goHomeBtn.onclick = () => {
@@ -213,35 +213,43 @@ function showResultBox() {
             clearInterval(progress);
         }
     }, speed);
+    
 }
 
 // hi
-const StringMinutes = 1;
-let time = StringMinutes*60;
-const countdownEl = document.getElementById('cutdown');
 
-let x= setInterval(UpdateCountdown, 1000);
+// const StringMinutes = 1;
+// let time = StringMinutes*60;
+// const countdownEl = document.getElementById('cutdown');
 
-function UpdateCountdown(){
 
-    const minutes =Math.floor(time / 60);
+    
 
-let seconds =time % 60;
+let  time = 0.5;
+let quizeTimeInMin = time *60 * 60;
+ let  quizeTime =quizeTimeInMin /60;
 
-seconds= seconds < 10 ?'0'+seconds :seconds;   
- 
-countdownEl.innerHTML= `${minutes} : ${seconds}`;
- 
-    time--;
+let counting = document.getElementById('cuonterdown');
 
-   if(time==-1)
-   {
-    showQuestions(questionCount);
-    clearInterval(x)
-    showResultBox()   ; 
-   }
+
+function startCountdown (){
+
+    let quizeTimer =setInterval(function(){
+if (quizeTime <= 0) {
+    clearInterval(quizeTimer);
+    showResultBox();
+}else{
+quizeTime--;
+let sec=Math.floor(quizeTime %60);
+let min=Math.floor(quizeTime/60)%60;
+counting.innerHTML=` ${min}:${sec}`;
+
+
 }
-// <!---5555555555-->
+    },1000)
+}
+startCountdown();
+
 
 // home user name 
 let homeUN = document.querySelector("#homeUserName")

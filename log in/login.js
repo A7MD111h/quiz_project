@@ -117,8 +117,16 @@ buttonlogin.addEventListener('click', (event) => {
         console.log("Login failed.");
     } else {
         console.log("login succes");
-        window.location.href = "../index.html";
-    }
+ //huda
+        // function passvalues() {
+        //         let firstName = document.getElementById('firstName').value;
+        //      localStorage.setItem(textvalue,firstName) ;   
+        //      return false;
+            
+        //      }
+            window.location.href = "../index.html";
+        
+        }
 });
 
 
@@ -135,6 +143,8 @@ buttonlogin.addEventListener('click', (event) => {
 //         console.log(`clicked`);
 //     }
 // })
+
+
 
 
 
