@@ -258,3 +258,4 @@ function checkPosition(){
         questionCount = 30;
     }
 }
+//test
