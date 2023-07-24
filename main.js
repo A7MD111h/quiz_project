@@ -236,8 +236,9 @@ countdownEl.innerHTML= `${minutes} : ${seconds}`;
 
    if(time==-1)
    {
+    showQuestions(questionCount);
     clearInterval(x)
-showResultBox()    
+showResultBox()   ; 
    }
 }
 // <!---5555555555-->
