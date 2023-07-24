@@ -56,23 +56,17 @@ continueBtn.onclick = () => {
 }
 
 tryAgainBtn.onclick = () => {
-
     quizBox.classList.add('active');
-    resultBox.classList.remove('active');
     nextBtn.classList.remove('active');
-    
-    
-    
-    
+    resultBox.classList.remove('active');
+
     questionCount = questionCount-9;
     questionNumb = 1;
     userScore = 0;
     countQt=1;
-    
     showQuestions(questionCount);
     questionCounter(questionNumb);
     headerScore();
-
     
 }
 
@@ -96,11 +90,9 @@ let userScore = 0;
 
 const nextBtn = document.querySelector('.next-btn');
 
-let fil = document.getElementById('test');;
 nextBtn.onclick = () => {
     let questionLooper ;
-
-        
+    
   if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
         console.log(true);
         questionLooper=9;
@@ -130,18 +122,6 @@ nextBtn.onclick = () => {
     else {
         showResultBox();
     }
-
-
-   
-
-
-
-
-
-
-
-
-
  }
 
 const optionList = document.querySelector('.option-list');
@@ -165,12 +145,6 @@ const optionList = document.querySelector('.option-list');
         option[i].setAttribute('onclick', 'optionSelected(this)');
     }
     
-
-
-
-    
-
-
 }
 
 
@@ -179,6 +153,8 @@ function optionSelected (answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
     let allOptions = optionList.children.length;
+
+    
 
     if (userAnswer == correctAnswer) {
         answer.classList.add('correct');
@@ -193,8 +169,8 @@ function optionSelected (answer) {
         for (let i = 0; i < allOptions; i++){
             if (optionList.children[i].textContent == correctAnswer) {
                 optionList.children[i].setAttribute('class', 'option correct');
-            }
-         }
+        }
+    }
 }
 
     //if user selected, disabled all' options
