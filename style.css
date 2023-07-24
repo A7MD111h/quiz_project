@@ -321,7 +321,7 @@ body {
     background-color: rgb(255, 255, 255, .1);
 }
 
-/* .option-list .option.correct {
+.option-list .option.correct {
     background: #09001d;
     color: #e5ffee;
     border-color: #e5ffee;
@@ -329,9 +329,9 @@ body {
 
 .option-list .option.incorrect {
     background: #09001d;
-    color: #a60045;
-    border-color: #a60045;
-} */
+    color: #e5ffee;
+    border-color: #e5ffee;
+}
 
 .option-list .option.disabled {
     pointer-events: none;
