@@ -251,4 +251,9 @@ counting.innerHTML=` ${min}:${sec}`;
 startCountdown();
 
 
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
 
+let datasaved = JSON.parse(localStorage.getItem("userData"));
+
+homeUN.append(datasaved.FirstName)
