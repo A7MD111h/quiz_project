@@ -241,3 +241,10 @@ showResultBox()
    }
 }
 
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
+
+let datasaved = JSON.parse(localStorage.getItem("userData"));
+
+homeUN.innerText
+homeUN.append(datasaved.FirstName);
