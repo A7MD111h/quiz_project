@@ -40,8 +40,8 @@ tryAgainBtn.onclick = () => {
     userScore = 0;
     showQuestions(questionCount);
     questionCounter(questionNumb);
-
     headerScore();
+    
 }
 
 goHomeBtn.onclick = () => {
@@ -162,30 +162,37 @@ function showResultBox() {
             clearInterval(progress);
         }
     }, speed);
+    
 }
 // hi
-const StringMinutes = 0.5;
-let time = StringMinutes*60;
-const countdownEl = document.getElementById('cutdown');
 
-let x= setInterval(UpdateCountdown, 1000);
+    
 
-function UpdateCountdown(){
+let  time = 0.5;
+let quizeTimeInMin = time *60 * 60;
+ let  quizeTime =quizeTimeInMin /60;
 
-    const minutes =Math.floor(time / 60);
+let counting = document.getElementById('cuonterdown');
 
-let seconds =time % 60;
 
-seconds= seconds < 10 ?'0'+seconds :seconds;   
- 
-countdownEl.innerHTML= `${minutes} : ${seconds}`;
- 
-    time--;
+function startCountdown (){
 
-   if(time==-1)
-   {
-    clearInterval(x)
-showResultBox()    
-   }
+    let quizeTimer =setInterval(function(){
+if (quizeTime <= 0) {
+    clearInterval(quizeTimer);
+    showResultBox();
+}else{
+quizeTime--;
+let sec=Math.floor(quizeTime %60);
+let min=Math.floor(quizeTime/60)%60;
+counting.innerHTML=` ${min}:${sec}`;
+
 }
+    },1000)
+}
+startCountdown();
 
+
+
+
+// document.getElementById("result").innerHTML=localStorage.getItem("textvalue");
