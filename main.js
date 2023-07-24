@@ -132,7 +132,7 @@ const optionList = document.querySelector('.option-list');
 
 
     function showQuestions(index) {
-
+        
     const questionText = document.querySelector('.question-text');
     questionText.textContent = `${countQt++}.${questions[index].question}`;
 
@@ -215,16 +215,17 @@ function showResultBox() {
             clearInterval(progress);
         }
     }, speed);
-    
+     
 }
 
 // hi
 
+// 
 
 
     
 
-let  time = 0.5;
+let  time = 0.25;
 let quizeTimeInMin = time *60 * 60;
  let  quizeTime =quizeTimeInMin /60;
 
@@ -246,13 +247,18 @@ counting.innerHTML=` ${min}:${sec}`;
 
 }
     },1000)
+
 }
+
 startCountdown();
-
-
 //
 function hide() {
 startBtn.style.display="none"
 
 }
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
 
+let datasaved = JSON.parse(localStorage.getItem("userData"));
+
+homeUN.append(datasaved.FirstName)
