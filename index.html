@@ -7,72 +7,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizit</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="icon" href="./q_icon.png" />
 </head>
 
 <body>
 
    <main class="main">
         <header class="header">
-            <a href="q-high-resolution-logo-white-on-transparent-background.png" class="logo">Quizit</a>
+            <img src="./q-high-resolution-logo-white-on-transparent-background.png" alt="logo Q" width="150" height="100"/>
 
             <nav class="navbar">
-                <a href="#" class="active">Home</a>
+                <a href="#home" >Home</a>
                 <a href="#About_us">About us</a>
                 <a href="/log_in/login.html">log in</a>
             </nav>
-    </header>
+        </header>
 
-    <div class="container">
-        <section class="quiz-section">
-            <div class="quiz-box">
-                <h1>Quiz</h1>
+        <div class="container">
+            <section class="quiz-section">
+                <div class="quiz-box">
+                    <h1>Quizit</h1>
 
-                <div class="quiz-header">
-                    <span>Quiz Website Tutorials</span>
-                    <span class="header-score">score 0 / 5 :</span>
-                    <p id="cuonterdown">0:25</p>
-                </div>
-                    <h2 class="question-text"><!-- What does HTML stand for?--></h2>
+                    <div class="quiz-header">
+                        <span>Good Luck ;)</span>
+                        <!-- <span class="header-score"> score no./10 </span> -->
+                        <p id="cuonter-down"><!-- Time --></p>
+                    </div>
+
+                    <h2 class="question-text"><!-- The Question --></h2>
             
                     <div class="option-list">
                         <div class="option">
-                            <pre><span><!-- A. Hyper Type Multi Language --></span></pre>
+                            <pre><span><!-- A. First Option --></span></pre>
                         </div>
                         <div class="option">
-                            <pre><span><!--B. Hyper Text Multiple Language--></span></pre>
+                            <pre><span><!-- B. Second Option --></span></pre>
                         </div>
                         <div class="option">
-                            <pre></pre><span><!--C. Hyper Text Markup Language--></span></pre>
+                            <pre></pre><span><!-- C. Third Option --></span></pre>
                         </div>
                         <div class="option">
-                            <pre> <span><!--D. Home Text Multi Language--></span></pre>
+                            <pre> <span><!-- D. Fourth Option--></span></pre>
                         </div>
                     </div>
 
-                <div class="quiz-footer">
-                    <span class="question-total">1 of 10 Questions</span>
-                    <button class="next-btn">Next</button>
+                    <div class="quiz-footer">
+                        <span class="question-total"><!-- no. out of 10 --></span>
+                        <button class="next-btn">Next</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="result-box">
-                <h2>Quiz Result!</h2>
-                <div class="percentage-container">
-                    <div class="circular-progress">
-                        <span class="progress-value">0%</span>
+                <div class="result-box">
+                    <h2>Quiz Result!</h2>
+                    <div class="percentage-container">
+                        <div class="circular-progress">
+                            <span class="progress-value"><!-- The percentage result --></span>
+                        </div>
+                        <span class="score-text"><!-- Your Score no. out of 10 --> </span>
                     </div>
 
-                <span class="score-text">Your Score 0 out of 10</span>
+                    <div class="buttons">
+                        <button class="tryAgain-btn">Show answers</button>
+                        <button class="goHome-btn">Go To Home</button>
+                    </div>
                 </div>
+            </section>
 
-                <div class="buttons">
-                    <button class="tryAgain-btn">Show answers</button>
-                    <button class="goHome-btn">Go To Home</button>
-                </div>
-            </div>
-        </section>
-
-            <section class="home">
+            <section id="home" class="home">
                 <div class="home-content">
                     <h1>Welcome <span id="homeUserName"></span></h1>
                     <p>As part of our hiring process, we value skill and knowledge assessment to ensure that we bring in talented
@@ -85,6 +86,7 @@
         </div>
     </main>
 
+    <!-- The window that shows the Quiz instructions -->
     <div class="popup-info">
         <h2>Quiz instructions</h2>
         <span class="info">1. The number of exam questions is 10 questions. </span>
@@ -102,32 +104,13 @@
    <section class="About_us" id="About_us">
     <div class="About_us-content">
         <h1>Welcome to Quizit</h1>
-        <p>a cutting-edge technology firm at the forefront of innovation. Our company is known for its dynamic and
-            diverse team of developers, engineers, designers, and creative minds. We pride ourselves on creating
-            groundbreaking solutions and pushing the boundaries of what's possible in the digital world.
-
-            At Quizit Company, we believe in fostering a collaborative and inclusive work environment that
-            encourages learning and professional growth. Our team is passionate about technology and is always
-            striving to stay ahead of the curve in an ever-evolving industry.
-
-            Our products and services span a wide range of sectors, from Website development to artificial
-            intelligence and machine learning solutions. We've built a reputation for delivering top-notch projects
-            that cater to the unique needs of our clients and customers.
-
-            As part of our hiring process, we value skill and knowledge assessment to ensure that we bring in
-            talented individuals who align with our company values and possess the expertise required to excel in
-            their roles. The test website we're developing will allow us to evaluate candidates in a fair and
-            comprehensive manner, helping us find the perfect fit for our team.
-
-            Our mission is to transform ideas into reality, and we believe that fostering a culture of continuous
-            learning and innovation is the key to achieving this. We envision our test website as an opportunity for
-            candidates to showcase their talents and potential while also gaining insight into the exciting
-            challenges and projects they'll be a part of if they join our team.
-
-            So, whether you're a seasoned professional or a fresh talent looking to make a mark in the tech
-            industry, Quizit Company is the place to be! We're excited to see the incredible talent that comes our
-            way through the test website and welcome those who share our passion for innovation to embark on this
-            journey with us.
+        <p>Quizit is a leading high-tech company known for its innovative solutions and diverse team. They focus on fostering a
+            collaborative work environment that encourages professional growth and continuous learning. Their products and
+            services span various sectors, including website development and artificial intelligence. They value skills
+            assessment in their recruitment process to find talented individuals who align with their company values. Quizit
+            envisions its audition site as an opportunity for candidates to showcase their potential and be part of exciting
+            challenges and projects. They welcome passionate individuals to join their mission of turning ideas into reality in
+            the tech industry.
             </p>
         
     </div>
