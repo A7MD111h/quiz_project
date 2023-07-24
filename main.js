@@ -56,17 +56,23 @@ continueBtn.onclick = () => {
 }
 
 tryAgainBtn.onclick = () => {
-    quizBox.classList.add('active');
-    nextBtn.classList.remove('active');
-    resultBox.classList.remove('active');
 
+    quizBox.classList.add('active');
+    resultBox.classList.remove('active');
+    nextBtn.classList.remove('active');
+    
+    
+    
+    
     questionCount = questionCount-9;
     questionNumb = 1;
     userScore = 0;
     countQt=1;
+    
     showQuestions(questionCount);
     questionCounter(questionNumb);
     headerScore();
+
     
 }
 
@@ -90,9 +96,11 @@ let userScore = 0;
 
 const nextBtn = document.querySelector('.next-btn');
 
+let fil = document.getElementById('test');;
 nextBtn.onclick = () => {
     let questionLooper ;
-    
+
+        
   if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
         console.log(true);
         questionLooper=9;
@@ -122,6 +130,18 @@ nextBtn.onclick = () => {
     else {
         showResultBox();
     }
+
+
+   
+
+
+
+
+
+
+
+
+
  }
 
 const optionList = document.querySelector('.option-list');
@@ -145,6 +165,12 @@ const optionList = document.querySelector('.option-list');
         option[i].setAttribute('onclick', 'optionSelected(this)');
     }
     
+
+
+
+    
+
+
 }
 
 
@@ -167,8 +193,8 @@ function optionSelected (answer) {
         for (let i = 0; i < allOptions; i++){
             if (optionList.children[i].textContent == correctAnswer) {
                 optionList.children[i].setAttribute('class', 'option correct');
-        }
-    }
+            }
+         }
 }
 
     //if user selected, disabled all' options
@@ -251,4 +277,9 @@ counting.innerHTML=` ${min}:${sec}`;
 startCountdown();
 
 
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
 
+let datasaved = JSON.parse(localStorage.getItem("userData"));
+
+homeUN.append(datasaved.FirstName)

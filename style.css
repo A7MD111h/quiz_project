@@ -85,7 +85,7 @@ body {
 }
 
 .home-content h1 {
-    font-size:78px ;
+    font-size:60px ;
     font-weight: 700;
     text-shadow: 0 0 10px rgb(0,0,0, .3);
 }
@@ -95,6 +95,7 @@ body {
     text-align: center;
     text-shadow: 0 0 10px rgb(0,0,0, .3);
     margin-bottom: 30px;
+    text-align: justify;
 }
 
 .home-content .start-btn {
@@ -123,7 +124,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(.9);
-    width: 500px;
+    width: 600px;
     background: #fff;
     border-radius: 6px;
     padding: 10px 25px;
@@ -131,6 +132,57 @@ body {
     pointer-events: none;
     transition: .3s ease;
 }
+
+.About_us {
+    position: relative;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    background-image: url("Banner+background\ \(1\).png");
+
+}
+
+.About_us-content{
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.About_us-content h1 {
+    font-size:60px ;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgb(0,0,0, .3);
+}
+
+.About_us-content p {
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px rgb(0,0,0, .3);
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+.About_us-content .start-btn {
+    width: 250px;
+    height: 55px;
+    background: #c40094;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #c40094;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s;
+}
+
 
 .popup-info.active {
     opacity: 1;
@@ -285,7 +337,7 @@ body {
     background-color: rgb(255, 255, 255, .1);
 }
 
-.option-list .option.correct {
+/* .option-list .option.correct {
     background: #09001d;
     color: #e5ffee;
     border-color: #e5ffee;
@@ -295,7 +347,7 @@ body {
     background: #09001d;
     color: #a60045;
     border-color: #a60045;
-}
+} */
 
 .option-list .option.disabled {
     pointer-events: none;
