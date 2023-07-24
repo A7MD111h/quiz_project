@@ -97,17 +97,17 @@ let counting = document.getElementById('cuonter-down');
 
 // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 const nextBtn = document.querySelector('.next-btn');
-nextBtn.onclick = () => {
-    console.log(questionLooper);  
-    console.log(questionCount);  
 
-    if (questionCount < questionLooper ) {
+nextBtn.onclick = () => {
+    if (questionCount < questions.length - 1) {
         questionCount++;
         showQuestions(questionCount);
+
         questionNumb++;
         questionCounter(questionNumb);
 
-       nextBtn.classList.remove('active');
+        nextBtn.classList.remove('active');
+
     }
     else {
         showResultBox();
@@ -150,12 +150,11 @@ function optionSelected (answer) {
         answer.classList.add ('incorrect')
 
         // if answer incorrest, auto selected correct answer
-        for (let i = 0; i < allOptions; i++){
-            if (optionList.children[i].textContent == correctAnswer) {
-                optionList.children[i].setAttribute('class', 'option correct');
-        }
+        // for (let i = 0; i < allOptions; i++){
+        //     optionList.children[i].classList.add('disabled');
+        // }
+        nextBtn.classList.add('active');
     }
-}
 
     //if user selected, disabled all' options
     for (let i = 0; i < allOptions; i++){

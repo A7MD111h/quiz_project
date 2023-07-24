@@ -329,8 +329,8 @@ body {
 
 .option-list .option.incorrect {
     background: #09001d;
-    color: #a60045;
-    border-color: #a60045;
+    color: #e5ffee;
+    border-color: #e5ffee;
 }
 
 .option-list .option.disabled {
