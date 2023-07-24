@@ -238,7 +238,14 @@ countdownEl.innerHTML= `${minutes} : ${seconds}`;
    {
     showQuestions(questionCount);
     clearInterval(x)
-showResultBox()   ; 
+    showResultBox()   ; 
    }
 }
 // <!---5555555555-->
+
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
+
+let datasaved = JSON.parse(localStorage.getItem("userData"));
+
+homeUN.append(datasaved.FirstName)
