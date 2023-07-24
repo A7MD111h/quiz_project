@@ -1,13 +1,16 @@
 let questions = [
+
+    /////////////////////////////////////HTML Question//////////////////////////////////////
     {
         numb: 1,
         question: "Which HTML tag is used to create a hyperlink?",
         answer: "B. a",
         options: [
-        "A. link",
-        "B. a",
-        "C. hyperlink",
-        "D. url"]
+            "A. link",
+            "B. a",
+            "C. hyperlink",
+            "D. url"
+        ]
     },
     {
         numb: 2,
@@ -52,8 +55,6 @@ let questions = [
             "C. ul",
             "D. unordered"
         ]
-
-
     },
     {
         numb: 6,
@@ -65,8 +66,6 @@ let questions = [
             "C. src",
             "D. url"
         ]
-
-
     },
     {
         numb: 7,
@@ -78,8 +77,6 @@ let questions = [
             "C.  It contains meta-information about the document.",
             "D.  It displays the main content of the page."
         ]
-
-
     },
     {
         numb: 8,
@@ -91,8 +88,6 @@ let questions = [
             "C.  th",
             "D.  table-row"
         ]
-
-
     },
     {
         numb: 9,
@@ -104,8 +99,6 @@ let questions = [
             "C.  br",
             "D.  linebreak"
         ]
-
-
     },
     {
         numb: 10,
@@ -117,10 +110,9 @@ let questions = [
             "C.  description",
             "D.  alt-text"
         ]
-
-
     },
 
+    /////////////////////////////////////CSS Question//////////////////////////////////////
     {
         numb: 11,
         question: "Which CSS property is used to control the spacing between lines of text?",
@@ -131,10 +123,7 @@ let questions = [
             "C.  text-spacing",
             "D.  word-spacing"
         ]
-
-
     },
-
     {
         numb: 12,
         question: "Which CSS property is used to change the text color of an element?",
@@ -145,8 +134,6 @@ let questions = [
             "C.  font-color",
             "D.  text-color"
         ]
-
-
     },
     {
         numb: 13,
@@ -158,8 +145,6 @@ let questions = [
             "C.  element.header",
             "D.  header"
         ]
-
-
     },
     {
         numb: 14,
@@ -171,8 +156,6 @@ let questions = [
             "C.  Colorful Style Sheets",
             "D.  Creative Style Sheets"
         ]
-
-
     },
     {
         numb: 15,
@@ -184,8 +167,6 @@ let questions = [
             "C.  navbar { color: blue; }",
             "D.  navbar.{ color: blue; }"
         ]
-
-
     },
     {
         numb: 16,
@@ -197,8 +178,6 @@ let questions = [
             "C.  line-spacing",
             "D.  spacing"
         ]
-
-
     },
     {
         numb: 17,
@@ -210,8 +189,6 @@ let questions = [
             "C.  element-border: 1px solid black;",
             "D.  border-width: 1px;"
         ]
-
-
     },
     {
         numb: 18,
@@ -223,8 +200,6 @@ let questions = [
             "C.  rounded-corners",
             "D.  corner-style"
         ]
-
-
     },
     {
         numb: 19,
@@ -236,8 +211,6 @@ let questions = [
             "C.  absolute",
             "D.  fixed"
         ]
-
-
     },
     {
         numb: 20,
@@ -249,9 +222,9 @@ let questions = [
             "C.  size",
             "D.  font-style"
         ]
-
-
     },
+
+    /////////////////////////////////////JS Question//////////////////////////////////////
     {
         numb: 21,
         question: "Which keyword is used to declare a variable in JavaScript?",
@@ -262,8 +235,6 @@ let questions = [
             "C.  const",
             "D.  int"
         ]
-
-
     },
     {
         numb: 22,
@@ -275,8 +246,6 @@ let questions = [
             "C.  function myFunction()",
             "D.  myFunction = function()"
         ]
-
-
     },
     {
         numb: 23,
@@ -288,9 +257,7 @@ let questions = [
             "C.  if (x =! 5)",
             "D.  if (x !== 5)"
         ]
-
     },
-
     {
         numb: 24,
         question: "Which built-in method is used to convert a string to all lowercase letters in JavaScript?",
@@ -301,8 +268,6 @@ let questions = [
             "C.  changeCase('lower')",
             "D.  stringToLower()"
         ]
-
-
     },
     {
         numb: 25,
@@ -314,8 +279,6 @@ let questions = [
             "C.  JSON.serialize()",
             "D.  JSON.decode()"
         ]
-
-
     },
     {
         numb: 26,
@@ -327,8 +290,6 @@ let questions = [
             "C.  Downloaded Object Manager",
             "D.  Document Order Model"
         ]
-
-
     },
     {
         numb: 27,
@@ -340,8 +301,6 @@ let questions = [
             "C.  invoke myFunction()",
             "D.  function.myFunction()"
         ]
-
-
     },
     {
         numb: 28,
@@ -353,8 +312,6 @@ let questions = [
             "C.  append()",
             "D.  insert()"
         ]
-
-
     },
     {
         numb: 29,
@@ -366,8 +323,6 @@ let questions = [
             "C.  The size of a variable",
             "D.  The index of a variable"
         ]
-
-
     },
     {
         numb: 30,
@@ -379,9 +334,9 @@ let questions = [
             "C.  loop-while",
             "D.  do-while loop"
         ]
-
-
     },
+
+    /////////////////////////////////////English Question//////////////////////////////////////
     {
         numb: 31,
         question: "Choose the correct sentence:",
@@ -392,8 +347,6 @@ let questions = [
             "C.  They doesn't like ice cream.",
             "D.  I don't like ice cream."
         ]
-
-
     },
     {
         numb: 32,
@@ -406,8 +359,6 @@ let questions = [
             "D.  Gloomy"
 
         ]
-
-
     },
     {
         numb: 33,
@@ -419,10 +370,8 @@ let questions = [
             "C.  child's",
             "D.  children"
         ]
-
-
     },
-   
+
     {
         numb: 34,
         question: "What is the past tense of the verb 'go'?",
@@ -433,8 +382,6 @@ let questions = [
             "C.  Gone",
             "D.  Goen"
         ]
-
-
     },
     {
         numb: 35,
@@ -446,8 +393,6 @@ let questions = [
             "C.  Theires",
             "D.  Theirse"
         ]
-
-
     },
     {
         numb: 36,
@@ -459,8 +404,6 @@ let questions = [
             "C.  John eats the cake.",
             "D.  The cake has been eaten."
         ]
-
-
     },
     {
         numb: 37,
@@ -472,8 +415,6 @@ let questions = [
             "C.  Taller",
             "D.  More tall"
         ]
-
-
     },
     {
         numb: 38,
@@ -485,8 +426,6 @@ let questions = [
             "C.  beautifully",
             "D.   She sang"
         ]
-
-
     },
     {
         numb: 39,
@@ -498,8 +437,6 @@ let questions = [
             "C.  Acommodate",
             "D.  Accommodatee"
         ]
-
-
     },
     {
         numb: 40,
@@ -511,8 +448,5 @@ let questions = [
             "C.  Personification",
             "D.   Hyperbole"
         ]
-
-
     },
-
 ];
