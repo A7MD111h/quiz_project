@@ -14,7 +14,9 @@ function register()
     let regexName = /^[A-Za-z]+$/;
     let passwordRegex = /^(?=.*[A-Z])(?=.*\d{2,})(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
- 
+    
+    let userinfo =[]
+
     let userData = {
     FirstName: firstName,
     Email: email,
@@ -60,6 +62,16 @@ function register()
     localStorage.setItem("userData",JSON.stringify(userData))
     alert('register succesful')
     return true;
+
+    function LocalStore(UserName, Email, Password) {
+        RestoreData();
+        userinfo.push(UserName);
+        // userinfo.push(FirstName);
+        userinfo.push(Email);
+        userinfo.push(Password);
+        let userinfoList = JSON.stringify(userinfo);
+        localStorage.setItem("UsersData", userinfoList);
+      }
 }
    
     
