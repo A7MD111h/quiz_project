@@ -1,92 +1,68 @@
-  // JavaScript code to dynamically populate questions on the new page
-
-        // Array of questions
-        let questions = [
-            {
-                numb: 1,
-                question: "Which HTML tag is used to create a hyperlink?",
-                answer: "B. a",
-                options: [
-                    "A. link",
-                    "B. a",
-                    "C. hyperlink",
-                    "D. url"
-                ]
-            },
-            {
-                numb: 2,
-                question: "What is the correct HTML element for the largest heading?",
-                answer: "A. h1",
-                options: [
-                    "A. h1",
-                    "B. heading",
-                    "C. h6",
-                    "D. head"
-                ]
-            },
-            {
-                numb: 3,
-                question: "Which attribute is used to define inline styles in HTML?",
-                answer: "A. style",
-                options: [
-                    "A. style",
-                    "B. css",
-                    "C. inline",
-                    "D. design"
-                ]
-            },
-            {
-                numb: 4,
-                question: "What is the correct HTML element for inserting an image?",
-                answer: "A. img",
-                options: [
-                    "A. img",
-                    "B. picture",
-                    "C. image",
-                    "D.  src"
-                ]
-            },
-            {
-                numb: 5,
-                question: "Which HTML tag is used to define an unordered list?",
-                answer: "C. ul",
-                options: [
-                    "A. ol",
-                    "B. list",
-                    "C. ul",
-                    "D. unordered"
-                ]
-        
-        
-            },
-        ];
-
-        // Function to populate questions dynamically
-        function populateQuestions() {
-            const questionList = document.querySelector('.question-list');
-
-            questions.forEach((question) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.classList.add('question-item');
-
-                const questionText = document.createElement('h2');
-                questionText.textContent = `${question.numb}. ${question.question}`;
-
-                const optionsList = document.createElement('ul');
-                question.options.forEach((option) => {
-                    const optionItem = document.createElement('li');
-                    optionItem.textContent = option;
-                    optionsList.appendChild(optionItem);
-                });
-
-                questionDiv.appendChild(questionText);
-                questionDiv.appendChild(optionsList);
-                questionList.appendChild(questionDiv);
-            });
-        }
-
-        // Call the function to populate questions when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            populateQuestions();
-        });
-    
+const questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["Berlin", "London", "Paris", "Rome"],
+      correctAnswer: "Paris"
+    },
+    {
+      question: "Which planet is known as the 'Red Planet'?",
+      options: ["Mars", "Venus", "Jupiter", "Mercury"],
+      correctAnswer: "Mars"
+    },
+    // Add more questions here
+    // {
+    //   question: "Your question goes here?",
+    //   options: ["Option 1", "Option 2", "Option 3", "Option 4"],
+    //   correctAnswer: "Correct Option"
+    // }
+  ];
+  
+  let currentQuestion = 0;
+  let score = 0;
+  
+  const questionElement = document.getElementById("question");
+  const optionsElement = document.getElementById("options");
+  const submitButton = document.getElementById("submit-btn");
+  
+  function showQuestion() {
+    const currentQ = questions[currentQuestion];
+    questionElement.textContent = currentQ.question;
+    optionsElement.innerHTML = "";
+  
+    currentQ.options.forEach((option, index) => {
+      const optionElement = document.createElement("div");
+      optionElement.classList.add("option");
+      optionElement.textContent = option;
+      optionElement.addEventListener("click", () => checkAnswer(index));
+      optionsElement.appendChild(optionElement);
+    });
+  }
+  
+  function checkAnswer(selectedIndex) {
+    const currentQ = questions[currentQuestion];
+    const selectedOption = currentQ.options[selectedIndex];
+  
+    if (selectedOption === currentQ.correctAnswer) {
+      score++;
+    }
+  
+    currentQuestion++;
+  
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  }
+  
+  function showResult() {
+    questionElement.textContent = `Quiz Completed! Your Score: ${score}/${questions.length}`;
+    optionsElement.innerHTML = "";
+    submitButton.style.display = "none";
+  }
+  
+  submitButton.addEventListener("click", showQuestion);
+  
+  // Start the quiz when the page loads
+  showQuestion();
+  
