@@ -28,7 +28,6 @@ exitBtn.onclick = () => {
     main.classList.remove('active')
 }
 
-
 // this it the button that leads u to the test
 continueBtn.onclick = () => {
    quizSection.classList.add('active');
@@ -211,38 +210,21 @@ function showResultBox() {
     
 }
 
-// const StringMinutes = 1;
-// let time = StringMinutes*60;
-// const countdownEl = document.getElementById('cutdown');
-
-
-
-
+// once the quiz start it's gonna count down
 function startCountdown (){
-
     let quizeTimer =setInterval(function(){
-if (quizeTime <= 0) {
-    clearInterval(quizeTimer);
-    showResultBox();
-}else{
-quizeTime--;
-let sec=Math.floor(quizeTime %60);
-let min=Math.floor(quizeTime/60)%60;
-counting.innerHTML=` ${min}:${sec}`;
-}
+        if (quizeTime <= 0) {
+        clearInterval(quizeTimer);
+        showResultBox();
+        } else {
+            quizeTime--;
+            let sec=Math.floor(quizeTime %60);
+            let min=Math.floor(quizeTime/60)%60;
+            counting.innerHTML=` ${min}:${sec}`;
+            }
     },1000)
 }
-
-
 startCountdown();
-
-// home user name 
-let homeUN = document.querySelector("#homeUserName")
-
-datasaved = JSON.parse(localStorage.getItem("userData"));
-
-homeUN.innerText
-homeUN.append(datasaved.FirstName);
 
 
 function checkPosition(){
@@ -275,5 +257,4 @@ function checkPosition(){
     else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
         questionCount = 30;
     }
-    }
-    
+}
