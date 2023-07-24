@@ -95,6 +95,10 @@ let quizeTimeInMin = time * 60 * 60;
 let quizeTime = quizeTimeInMin / 60;
 let counting = document.getElementById('cuonter-down');
 
+let questionLooper ;
+checkPosition();
+
+
 // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 const nextBtn = document.querySelector('.next-btn');
 
@@ -139,6 +143,8 @@ function optionSelected (answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
     let allOptions = optionList.children.length;
+
+    
 
     // if the user answer correctly raise his score
     if (userAnswer == correctAnswer) {
@@ -209,32 +215,65 @@ function showResultBox() {
 // let time = StringMinutes*60;
 // const countdownEl = document.getElementById('cutdown');
 
-// if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
-//     questionCount = 0;
-// }
-// else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
-//     questionCount = 10;
-// }
-// else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
-//     questionCount = 20;
-    
-// }
-// else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
-//     questionCount = 30;
-// }
 
-//     let questionLooper ;
-//   if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
-//         console.log(true);
-//         questionLooper=9;
-//     }
-//   else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
-//         questionLooper=19;
-//     }
-//     else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
-//         questionLooper=29;
+
+
+function startCountdown (){
+
+    let quizeTimer =setInterval(function(){
+if (quizeTime <= 0) {
+    clearInterval(quizeTimer);
+    showResultBox();
+}else{
+quizeTime--;
+let sec=Math.floor(quizeTime %60);
+let min=Math.floor(quizeTime/60)%60;
+counting.innerHTML=` ${min}:${sec}`;
+}
+    },1000)
+}
+
+
+startCountdown();
+
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
+
+datasaved = JSON.parse(localStorage.getItem("userData"));
+
+homeUN.innerText
+homeUN.append(datasaved.FirstName);
+
+
+function checkPosition(){
+    if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
+          console.log(true);
+          questionLooper=9;
+      }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
+          questionLooper=19;
+      }
+      else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
+          questionLooper=29;
+          
+      }
+      else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
+         questionLooper=39;
+      }
+    
+    
+      if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
+        questionCount = 0;
+    }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
+        questionCount = 10;
+    }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
+        questionCount = 20;
         
-//     }
-//     else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
-//        questionLooper=39;
-//     }
+    }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
+        questionCount = 30;
+    }
+    }
+    
