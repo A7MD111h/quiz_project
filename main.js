@@ -53,6 +53,7 @@ continueBtn.onclick = () => {
    showQuestions(questionCount);
    questionCounter(1);
    headerScore();
+startCountdown();
 }
 
 // tryAgainBtn.onclick = () => {
