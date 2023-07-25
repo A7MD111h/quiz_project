@@ -15,7 +15,9 @@ function register()
     let passwordRegex = /^(?=.*[A-Z])(?=.*\d{2,})(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-    let userinfo =[]
+    //
+    let obj=JSON.parse(localStorage.getItem("userData"));
+    let userinfo =obj?obj:[];
 
     let userData = {
     FirstName: firstName,
@@ -101,9 +103,6 @@ function login() {
     if (storedUserData) {
         
         if (email === storedUserData.Email && password === storedUserData.Password) {
-            // function myFunction() {
-            //     window.location.href = "/index.html";
-            //   }
             // alert('done')
             return true
         } else {
@@ -129,13 +128,7 @@ buttonlogin.addEventListener('click', (event) => {
         console.log("Login failed.");
     } else {
         console.log("login succes");
- //huda
-        // function passvalues() {
-        //         let firstName = document.getElementById('firstName').value;
-        //      localStorage.setItem(textvalue,firstName) ;   
-        //      return false;
-            
-        //      }
+
             window.location.href = "../index.html";
         
         }
