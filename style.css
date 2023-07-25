@@ -316,6 +316,22 @@ body {
     transition: .3s;
 }
 
+
+.R{
+
+    width: 100%;
+    padding: 4px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255, .2);
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 1em 0;
+    cursor:auto;
+    transition: .3s;
+    
+}
+
+
 .option-list .option:hover{
     background: rgb(255, 255, 255, .1);
     background-color: rgb(255, 255, 255, .1);
@@ -329,8 +345,8 @@ body {
 
 .option-list .option.incorrect {
     background: #09001d;
-    color: #e5ffee;
-    border-color: #e5ffee;
+    color:#f90d0d;
+    border-color: #f90d0d;
 }
 
 .option-list .option.disabled {

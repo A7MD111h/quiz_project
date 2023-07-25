@@ -6,9 +6,20 @@ const continueBtn = document.querySelector('.continue-btn');
 const quizSection = document.querySelector('.quiz-section');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
-const tryAgainBtn = document.querySelector('.tryAgain-btn');
+const showResultAns = document.querySelector('.showResultAns-btn');
 const goHomeBtn = document.querySelector('.goHome-btn');
+const R = document.querySelector('.R');
 const userData = JSON.parse(localStorage.getItem('userData'));
+userData.position="JAVASCRIPT";
+let questionCount = 0;
+let questionLooper=0 ;
+let questionNumb = 1;
+let userScore = 0;
+let countQt = 1;
+let userAnswerR=[];
+
+
+
 
 // the welcoming message
 let homeWelcome = document.querySelector("#homeUserName")
@@ -28,7 +39,7 @@ exitBtn.onclick = () => {
     main.classList.remove('active')
 }
 
-// this it the button that leads u to the test
+// this is the button that leads u to the test
 continueBtn.onclick = () => {
    quizSection.classList.add('active');
    popupInfo.classList.remove('active');
@@ -41,21 +52,29 @@ continueBtn.onclick = () => {
 }
 
 // the try again button after u finish u could try the test one more time
-// tryAgainBtn.onclick = () => {
-//     quizBox.classList.add('active');
-//     nextBtn.classList.remove('active');
-//     resultBox.classList.remove('active');
+showResultAns.onclick = () => {
+let i=0
+    const Re=document.querySelector(".R-list");
+    // const R=document.querySelector(".R");
+    let Rtag= `<div class="R"><pre><span>${userAnswerR[i++]}<!-- A. First Option --></span></pre></div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>
+    <div class="R">${userAnswerR[i++]}</div>`;
 
-//     questionCount = 0;
-//     questionNumb = 1;
-//     userScore = 0;
-//     showQuestions(questionCount);
-//     questionCounter(questionNumb);
+  
+    Re.innerHTML = Rtag;
+    // Re.classList.add("active")
 
-//     headerScore();
-// }
+}
 
 // go to home page this butten leads u to the main page
+
 goHomeBtn.onclick = () => {
     quizSection.classList.remove('active');
     nextBtn.classList.remove('active');
@@ -67,12 +86,10 @@ goHomeBtn.onclick = () => {
     countQt=1;
     showQuestions(questionCount);
     questionCounter(questionNumb);
+    location.reload();
 }
 
-let questionCount = 0;
-let questionNumb = 1;
-let userScore = 0;
-let countQt = 1;
+
 
 //the counter tat is gonna count the time for the test
 function startCountDown (){
@@ -88,28 +105,50 @@ function startCountDown (){
         }
     }, 1000)
 }
-startCountDown();
 let time = 0.5;
 let quizeTimeInMin = time * 60 * 60;
 let quizeTime = quizeTimeInMin / 60;
 let counting = document.getElementById('cuonter-down');
+startCountDown();
 
-let questionLooper ;
-checkPosition();
 
+
+
+function checkPosition(){
+    if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
+          questionLooper=9;
+          questionCount = 0;
+      }
+    else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
+          questionLooper=19;
+          questionCount = 10;
+      }
+      else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
+          questionLooper=29;
+          questionCount = 20;
+         
+      }
+      else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
+         questionLooper=39;
+         questionCount = 30;
+      }
+        
+
+}
 
 // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 const nextBtn = document.querySelector('.next-btn');
 
+checkPosition();
 nextBtn.onclick = () => {
-    if (questionCount < questions.length - 1) {
+    if (questionCount < questionLooper) {
         questionCount++;
         showQuestions(questionCount);
 
         questionNumb++;
         questionCounter(questionNumb);
 
-        nextBtn.classList.remove('active');
+      nextBtn.classList.remove('active');
 
     }
     else {
@@ -119,6 +158,7 @@ nextBtn.onclick = () => {
 
 // getting questions and options from array
 const optionList = document.querySelector('.option-list');
+
 function showQuestions(index) {
 
     const questionText = document.querySelector('.question-text');
@@ -139,26 +179,31 @@ function showQuestions(index) {
 
 // this function checking the user answer and changeing the marks
 function optionSelected (answer) {
+    userAnswerR.push(answer.textContent);
+    console.log(userAnswerR);
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
     let allOptions = optionList.children.length;
 
-    
 
     // if the user answer correctly raise his score
     if (userAnswer == correctAnswer) {
+        nextBtn.classList.add('active');
+        for (let i = 0; i < allOptions; i++){
+            optionList.children[i].classList.add('disabled');
+        }
         answer.classList.add('correct');
         userScore += 1;
         headerScore();
     }
     else {
-        answer.classList.add ('incorrect')
+       answer.classList.add ('incorrect')
+       nextBtn.classList.add('active');
 
-        // if answer incorrest, auto selected correct answer
-        // for (let i = 0; i < allOptions; i++){
-        //     optionList.children[i].classList.add('disabled');
-        // }
-        nextBtn.classList.add('active');
+      //88  if answer incorrest, auto selected correct answer
+        for (let i = 0; i < allOptions; i++){
+            optionList.children[i].classList.add('disabled');
+        }
     }
 
     //if user selected, disabled all' options
@@ -227,35 +272,5 @@ function startCountdown (){
 startCountdown();
 
 
-function checkPosition(){
-    if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
-          console.log(true);
-          questionLooper=9;
-      }
-    else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
-          questionLooper=19;
-      }
-      else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
-          questionLooper=29;
-          
-      }
-      else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
-         questionLooper=39;
-      }
-    
-    
-      if (JSON.stringify(userData.position).toUpperCase() === `"HTML"`){
-        questionCount = 0;
-    }
-    else if (JSON.stringify(userData.position).toUpperCase() === `"CSS"`){       
-        questionCount = 10;
-    }
-    else if (JSON.stringify(userData.position).toUpperCase() === `"JAVASCRIPT"`){     
-        questionCount = 20;
-        
-    }
-    else if (JSON.stringify(userData.position).toUpperCase() === `"ENGLISH"`){
-        questionCount = 30;
-    }
-}
+
 //test

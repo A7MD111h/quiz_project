@@ -42,7 +42,7 @@ let questions = [
             "A. img",
             "B. picture",
             "C. image",
-            "D.  src"
+            "D. src"
         ]
     },
     {
@@ -446,7 +446,7 @@ let questions = [
             "A.  Simile",
             "B.  Metaphor",
             "C.  Personification",
-            "D.   Hyperbole"
+            "D.  Hyperbole"
         ]
     },
 ];
