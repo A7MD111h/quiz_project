@@ -250,7 +250,7 @@ counting.innerHTML=` ${min}:${sec}`;
 
 }
 
-startCountdown();
+// startCountdown();
 //
 function hide() {
 startBtn.style.display="none"
