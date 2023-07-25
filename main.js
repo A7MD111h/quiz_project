@@ -155,7 +155,6 @@ function optionSelected (answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
     let allOptions = optionList.children.length;
-
     if (userAnswer == correctAnswer) {
         answer.classList.add('correct');
         userScore += 1;
@@ -176,6 +175,7 @@ function optionSelected (answer) {
     //if user selected, disabled all' options
     for (let i = 0; i < allOptions; i++){
         optionList.children[i].classList.add('disabled');
+
     }
 
     nextBtn.classList.add('active');
@@ -225,7 +225,7 @@ function showResultBox() {
 
     
 
-let  time = 0.25;
+let  time = 1;
 let quizeTimeInMin = time *60 * 60;
  let  quizeTime =quizeTimeInMin /60;
 
@@ -263,3 +263,7 @@ let datasaved = JSON.parse(localStorage.getItem("userData"));
 
 homeUN.innerText
 homeUN.append(datasaved.FirstName);
+
+
+
+//
