@@ -33,17 +33,17 @@ exitBtn.onclick = () => {
 }
 
 // this it the button that leads u to the test
-continueBtn.onclick = () => {
-   quizSection.classList.add('active');
-   popupInfo.classList.remove('active');
-   main.classList.remove('active');
-   quizBox.classList.add('active');
+// continueBtn.onclick = () => {
+//    quizSection.classList.add('active');
+//    popupInfo.classList.remove('active');
+//    main.classList.remove('active');
+//    quizBox.classList.add('active');
 
-   showQuestions(questionCount);
-   questionCounter(1);
-   headerScore();
-   startCountDown();
-}
+//    showQuestions(questionCount);
+//    questionCounter(1);
+//    headerScore();
+//    startCountDown();
+// }
 
 //hiding start btn 
 function hide() {
@@ -90,24 +90,24 @@ if (!userData.answers){
 }
 
 //the counter tat is gonna count the time for the test
-function startCountDown (){
-    let quizeTimer =setInterval(function(){
-        if (quizeTime <= 0) {
-            clearInterval(quizeTimer);
-            showResultBox();
-        } else {
-            quizeTime--;
-            let sec=Math.floor(quizeTime %60);
-            let min=Math.floor(quizeTime/60)%60;
-            counting.innerHTML=` ${min}:${sec}`;
-        }
-    }, 1000)
-}
+// function startCountDown (){
+//     let quizeTimer =setInterval(function(){
+//         if (quizeTime <= 0) {
+//             clearInterval(quizeTimer);
+//             showResultBox();
+//         } else {
+//             quizeTime--;
+//             let sec=Math.floor(quizeTime %60);
+//             let min=Math.floor(quizeTime/60)%60;
+//             counting.innerHTML=` ${min}:${sec}`;
+//         }
+//     }, 1000)
+// }
 // startCountDown();
-let time = 5;
-let quizeTimeInMin = time * 60 * 60;
-let quizeTime = quizeTimeInMin / 60;
-let counting = document.getElementById('cuonter-down');
+// let time = 5;
+// let quizeTimeInMin = time * 60 * 60;
+// let quizeTime = quizeTimeInMin / 60;
+// let counting = document.getElementById('cuonter-down');
 
 
 
@@ -450,6 +450,42 @@ var questions = [];
     }]
   }
 
+
+// this it the button that leads u to the test
+continueBtn.onclick = () => {
+   quizSection.classList.add('active');
+   popupInfo.classList.remove('active');
+   main.classList.remove('active');
+   quizBox.classList.add('active');
+
+   showQuestions(questionCount);
+   questionCounter(1);
+    startCountdown();
+   headerScore();
+
+}
+
+let  time = 3.50;
+let quizeTimeInMin = time *60 * 60;
+ let  quizeTime =quizeTimeInMin /60;
+
+let counting = document.getElementById('cuonter-down');
+
+function startCountdown (){
+    let quizeTimer =setInterval(function(){
+        if (quizeTime <= 0) {
+        clearInterval(quizeTimer);
+        showResultBox();
+        } else {
+            quizeTime--;
+            let sec=Math.floor(quizeTime %60);
+            let min=Math.floor(quizeTime/60)%60;
+            counting.innerHTML=` ${min}:${sec}`;
+            }
+    },1000)
+
+}
+
   // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 nextBtn.onclick = () => {
     if (questionCount < questions.length - 1) {
@@ -600,20 +636,32 @@ function showResultBox() {
     let progressStartValue = -1;
     let progressEndValue = (userScore / 10) * 100;
     let speed = 20;
+    
+    
 
     // the cicule of percentage
     let progress = setInterval(() => {
         progressStartValue++;
 
         progressValue.textContent = `${progressStartValue}%`;
-        circularProgress.style.background = `conic-gradient(#c40094 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+        if (progressStartValue<50) {
+             circularProgress.style.background = `conic-gradient(#f00 ${progressStartValue * 3.6}deg, rgba(255, 0, 0, .1) 0deg)`;
+
+            
+         }
+   else      
+        circularProgress.style.background = `conic-gradient(#0f0 ${progressStartValue * 3.6}deg, rgba(0, 255, 0, .1) 0deg)`;
+    
 
         if (progressStartValue == progressEndValue) {
             clearInterval(progress);
         }
     }, speed);
+   
     
 }
+
+
 
 // const StringMinutes = 1;
 // let time = StringMinutes*60;
@@ -651,3 +699,5 @@ function showResultBox() {
 tryAgainBtn.addEventListener('click' , function(){
     window.open("./Result/Result.html" , "_blank")
 });
+
+
