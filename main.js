@@ -377,7 +377,7 @@ var questions = [];
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
     main.classList.add('active');
-    
+    let home = document.querySelector('#home').style.display = 'none'
 }
 
 // this is the exit test button 
