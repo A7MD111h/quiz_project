@@ -9,23 +9,8 @@ const resultBox = document.querySelector('.result-box');
 const tryAgainBtn = document.querySelector('.tryAgain-btn');
 const goHomeBtn = document.querySelector('.goHome-btn');
 const userData = JSON.parse(localStorage.getItem('userData'));
-// const testing =document.querySelector('.testing');
-// testing.addEventListener('click', (e)=>{
-//     const userData = JSON.parse(localStorage.getItem('userData'));
-//     let x = userData.position
-//     console.log(x)
-// })
+const nextBtn = document.querySelector('.next-btn');
 
-
-
-// Inside the other_page.html, after the button element
-
-
-
-if (!userData.answers){
-    // localStorage.setItem("userData", JSON.stringify({
-        userData.answers = []
-}
 // the welcoming message
 let homeWelcome = document.querySelector("#homeUserName")
 let datasaved = JSON.parse(localStorage.getItem("userData"));
@@ -34,9 +19,101 @@ homeWelcome.append(datasaved.FirstName);
 console.log(userData.position);
 var quizshow=userData.position;
 
+// this is the start test button 
+startBtn.onclick = () => {
+    popupInfo.classList.add('active');
+    main.classList.add('active');
+    let home = document.querySelector('#home').style.display = 'none'
+}
+
+// this is the exit test button 
+exitBtn.onclick = () => {
+    popupInfo.classList.remove('active');
+    main.classList.remove('active')
+}
+
+// this it the button that leads u to the test
+continueBtn.onclick = () => {
+   quizSection.classList.add('active');
+   popupInfo.classList.remove('active');
+   main.classList.remove('active');
+   quizBox.classList.add('active');
+
+   showQuestions(questionCount);
+   questionCounter(1);
+   headerScore();
+   startCountDown();
+}
+
+//hiding start btn 
+function hide() {
+  startBtn.style.display="none"
+  }
+
+// the try again button after u finish u could try the test one more time
+// tryAgainBtn.onclick = () => {
+//     quizBox.classList.add('active');
+//     nextBtn.classList.remove('active');
+//     resultBox.classList.remove('active');
+
+//     questionCount = 0;
+//     questionNumb = 1;
+//     userScore = 0;
+//     showQuestions(questionCount);
+//     questionCounter(questionNumb);
+
+//     headerScore();
+// }
+
+// go to home page this butten leads u to the main page
+goHomeBtn.onclick = () => {
+    quizSection.classList.remove('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = questionCount;
+    questionNumb = 1;
+    userScore = 0;
+    countQt=1;
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+    hide();
+}
+
+let questionCount = 0;
+let questionNumb = 1;
+let userScore = 0;
+let countQt = 1;
+
+if (!userData.answers){
+    userData.answers = []
+}
+
+//the counter tat is gonna count the time for the test
+function startCountDown (){
+    let quizeTimer =setInterval(function(){
+        if (quizeTime <= 0) {
+            clearInterval(quizeTimer);
+            showResultBox();
+        } else {
+            quizeTime--;
+            let sec=Math.floor(quizeTime %60);
+            let min=Math.floor(quizeTime/60)%60;
+            counting.innerHTML=` ${min}:${sec}`;
+        }
+    }, 1000)
+}
+// startCountDown();
+let time = 5;
+let quizeTimeInMin = time * 60 * 60;
+let quizeTime = quizeTimeInMin / 60;
+let counting = document.getElementById('cuonter-down');
+
+
+
+
 var questions = [];
-  if (quizshow === 'HTML'){
-    /////////////////////////////////////HTML Question//////////////////////////////////////
+  if (quizshow === 'HTML'){/////////////////////////////////////HTML Question//////////////////////////////////////
     questions = [ {
         numb: 1,
         question: "Which HTML tag is used to create a hyperlink?",
@@ -373,110 +450,7 @@ var questions = [];
     }]
   }
 
-// this is the start test button 
-startBtn.onclick = () => {
-    popupInfo.classList.add('active');
-    main.classList.add('active');
-    let home = document.querySelector('#home').style.display = 'none'
-}
-
-// this is the exit test button 
-exitBtn.onclick = () => {
-    popupInfo.classList.remove('active');
-    main.classList.remove('active')
-}
-
-
-// this it the button that leads u to the test
-continueBtn.onclick = () => {
-   quizSection.classList.add('active');
-   popupInfo.classList.remove('active');
-   main.classList.remove('active');
-   quizBox.classList.add('active');
-
-   showQuestions(questionCount);
-   questionCounter(1);
-   headerScore();
-   startCountDown();
-}
-//hid start btn 
-function hide() {
-  startBtn.style.display="none"
-  
-  }
-// the try again button after u finish u could try the test one more time
-// tryAgainBtn.onclick = () => {
-//     quizBox.classList.add('active');
-//     nextBtn.classList.remove('active');
-//     resultBox.classList.remove('active');
-
-//     questionCount = 0;
-//     questionNumb = 1;
-//     userScore = 0;
-//     showQuestions(questionCount);
-//     questionCounter(questionNumb);
-
-//     headerScore();
-// }
-
-// go to home page this butten leads u to the main page
-goHomeBtn.onclick = () => {
-    quizSection.classList.remove('active');
-    nextBtn.classList.remove('active');
-    resultBox.classList.remove('active');
-
-    questionCount = questionCount;
-    questionNumb = 1;
-    userScore = 0;
-    countQt=1;
-    showQuestions(questionCount);
-    questionCounter(questionNumb);
-    hide();
-}
-
-let questionCount = 0;
-let questionNumb = 1;
-let userScore = 0;
-let countQt = 1;
-
-//the counter tat is gonna count the time for the test
-function startCountDown (){
-    let quizeTimer =setInterval(function(){
-        if (quizeTime <= 0) {
-            clearInterval(quizeTimer);
-            showResultBox();
-        } else {
-            quizeTime--;
-            let sec=Math.floor(quizeTime %60);
-            let min=Math.floor(quizeTime/60)%60;
-            counting.innerHTML=` ${min}:${sec}`;
-        }
-    }, 1000)
-}
-// startCountDown();
-let time = 5;
-let quizeTimeInMin = time * 60 * 60;
-let quizeTime = quizeTimeInMin / 60;
-let counting = document.getElementById('cuonter-down');
-
-// this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
-const nextBtn = document.querySelector('.next-btn');
-
-// nextBtn.onclick = () => {
-//     if (questionCount < questions.length - 1) {
-//         questionCount++;
-//         showQuestions(questionCount);
-
-//         questionNumb++;
-//         questionCounter(questionNumb);
-
-//         nextBtn.classList.remove('active');
-
-//     }
-//     else {
-//         showResultBox();
-//     }
-//  }
+  // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 nextBtn.onclick = () => {
     if (questionCount < questions.length - 1) {
       // Reset the "answered" variable for the next question
@@ -491,10 +465,7 @@ nextBtn.onclick = () => {
     } else {
       showResultBox();
     }
-  };
-  
-
-  
+};
 
 // getting questions and options from array
 const optionList = document.querySelector('.option-list');
@@ -514,10 +485,9 @@ function showQuestions(index) {
         option[i].addEventListener('click', function () {
             optionSelected(this);
           });
-      
-    }
-    
+    }   
 }
+
 // Add a variable to keep track of whether the user has already answered the current question
 let answered = false;
 function optionSelected(answer) {
@@ -553,13 +523,9 @@ function optionSelected(answer) {
         optionSelected(this);
       });
     }
-  
     // Enable the next button after the user answers
     nextBtn.classList.add('active');
   }
-  
-  
-  
   
 // this is the statment saying no. out of 10 it's gonna be down at the left side
 function questionCounter(index){
@@ -637,5 +603,4 @@ function showResultBox() {
 //     }
 tryAgainBtn.addEventListener('click' , function(){
     window.open("./Result/Result.html" , "_blank")
-})
-
+});
