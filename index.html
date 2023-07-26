@@ -8,25 +8,91 @@
     <title>Quizit</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="icon" href="./q_icon.png" />
+
+    <style>                
+                    
+        .na_0{
+        width: 100% ;
+        margin:  0 auto;
+        position:sticky; ;
+        top: 0;
+        z-index:4 ;
+        overflow: hidden;
+
+        /* background-color: #19152B; */
+        
+        }
+        .navbar {
+            width: 85% ;
+            margin:  0 auto;
+            /* background-color: #19152B; */
+            /* overflow: hidden; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* padding: 1rem; */
+            /* position: fixed;
+            top: 0;
+            z-index:4 ; */
+
+        }
+        .navbar img {
+        height: 40px;
+        width: 100%;
+        }
+
+        .navbar ul {
+        list-style-type: none;
+        display: flex;
+        }
+
+        .navbar ul li {
+        /* margin-right: 10px; */
+        }
+            
+        .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        }
+
+
+        ul{
+            display: flex;
+            gap: 2.5rem;
+        }
+        li{
+            display: block;
+            transition:.1s;
+        }
+
+        ul:hover li{
+            filter: blur(1px);
+        }
+        ul li:hover{
+            filter: blur(0px);
+        }
+
+    </style>
 </head>
 
 <body>
 
    <main class="main">
         <header class="header">
-            <img src="./q-high-resolution-logo-white-on-transparent-background.png" alt="logo Q" width="150" height="100"/>
-
-            <nav class="navbar">
-                <a href="#home" >Home</a>
-<<<<<<< HEAD
-                <!-- <a href="#About_us">About us</a> -->
-                <a href="/log_in/login.html">log in</a>
-=======
-                <a href="#About_us">About us</a>
-                <a href="./Login/login.html">log in</a>
->>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
-            </nav>
+            <nav class="na_0 ">
+                <div class="navbar ">
+                    <div class="divlogo">
+                        <a href="#home"><img src="/log_in/logo.png" alt="Logo"></a>
+                    </div>
+                    <ul class="ul_nav">
+                        <li><a href="#home" >Home</a></li>
+                        <li><a href="/log_in/login.html" id="btn_login">log in</a></li>
+                        <!-- <li><button id="showPositionBtn">Show Position</button></li> -->
+                    </ul>
+                </div>
+            </nav> 
         </header>
+
 
         <div class="container">
             <section class="quiz-section">
@@ -34,7 +100,7 @@
                     <h1>Quizit</h1>
 
                     <div class="quiz-header">
-                        <span>Good Luck ;)</span>
+                        <span>Good Luck </span>
                         <!-- <span class="header-score"> score no./10 </span> -->
                         <p id="cuonter-down"><!-- Time --></p>
                     </div>
@@ -72,41 +138,8 @@
                     </div>
 
                     <div class="buttons">
-                        
-                        <button class="showResultAns-btn">Show answers</button>
+                        <button class="tryAgain-btn">Show answers</button>
                         <button class="goHome-btn">Go To Home</button>
-                    </div>
-                    <div class="R-list">
-                        <div class="R">
-                           
-                        </div>
-                        <div class="R">
-                           
-                        </div>
-                        <div class="R">
-                           
-                        </div>
-                        <div class="R">
-                            
-                        </div>
-                        <div class="R">
-                           
-                        </div>
-                        <div class="R">
-                            
-                        </div>
-                        <div class="R">
-                           
-                        </div>
-                        <div class="R">
-                            
-                        </div>
-                        <div class="R">
-                            
-                        </div>
-                        <div class="R">
-                            
-                        </div>
                     </div>
                 </div>
             </section>
@@ -139,28 +172,12 @@
         </div>
    </div>
     
-   <!-- <section class="About_us" id="About_us">
-    <div class="About_us-content">
-        <h1>Welcome to Quizit</h1>
-        <p>Quizit is a leading high-tech company known for its innovative solutions and diverse team. They focus on fostering a
-            collaborative work environment that encourages professional growth and continuous learning. Their products and
-            services span various sectors, including website development and artificial intelligence. They value skills
-            assessment in their recruitment process to find talented individuals who align with their company values. Quizit
-            envisions its audition site as an opportunity for candidates to showcase their potential and be part of exciting
-            challenges and projects. They welcome passionate individuals to join their mission of turning ideas into reality in
-            the tech industry.
-            </p>
-        
-    </div>
-</section> -->
+   
 
-
-
-
-
-    <script src="./questions.js"></script>
+    <!-- <script src="questions.js"></script> -->
     <script src="./main.js"></script>
 
 </body>
 </html>
-<!--test1-->
+
+

@@ -1,68 +1,191 @@
+// Fetch userData from localStorage
+const userData = JSON.parse(localStorage.getItem('userData'));
+
+// Sample questions array (replace this with your actual questions)
 const questions = [
-    {
-      question: "What is the capital of France?",
-      options: ["Berlin", "London", "Paris", "Rome"],
-      correctAnswer: "Paris"
-    },
-    {
-      question: "Which planet is known as the 'Red Planet'?",
-      options: ["Mars", "Venus", "Jupiter", "Mercury"],
-      correctAnswer: "Mars"
-    },
-    // Add more questions here
-    // {
-    //   question: "Your question goes here?",
-    //   options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-    //   correctAnswer: "Correct Option"
-    // }
-  ];
+  {
+
+    question: "Which HTML tag is used to create a hyperlink?",
+    answer: "B. a",
+    options: [
+        "A. link",
+        "B. a",
+        "C. hyperlink",
+        "D. url"
+    ]
+},
+{
+
+    question: "What is the correct HTML element for the largest heading?",
+    options: [
+      "A. h1",
+      "B. heading",
+      "C. h6",
+      "D. head"
+  ],
+    answer: "A. h1",
+   
+},
+{
   
-  let currentQuestion = 0;
-  let score = 0;
+    question: "Which attribute is used to define inline styles in HTML?",
+    options: [
+      "A. style",
+      "B. css",
+      "C. inline",
+      "D. design"
+  ],
+    answer: "A. style",
+    
+},
+{
   
-  const questionElement = document.getElementById("question");
-  const optionsElement = document.getElementById("options");
-  const submitButton = document.getElementById("submit-btn");
+    question: "What is the correct HTML element for inserting an image?", 
+    options: [
+        "A. img",
+        "B. picture",
+        "C. image",
+        "D.  src"
+    ],
+    answer: "A. img",
+   
+},
+{
   
-  function showQuestion() {
-    const currentQ = questions[currentQuestion];
-    questionElement.textContent = currentQ.question;
-    optionsElement.innerHTML = "";
+    question: "Which HTML tag is used to define an unordered list?",
+    options: [
+      "A. ol",
+      "B. list",
+      "C. ul",
+      "D. unordered"
+  ],
+    answer: "C. ul",
+   
+},
+{
   
-    currentQ.options.forEach((option, index) => {
-      const optionElement = document.createElement("div");
-      optionElement.classList.add("option");
-      optionElement.textContent = option;
-      optionElement.addEventListener("click", () => checkAnswer(index));
-      optionsElement.appendChild(optionElement);
-    });
-  }
+    question: "In HTML, which attribute is used to specify the URL of the linked resource?",
+    options: [
+      "A. href",
+      "B. link",
+      "C. src",
+      "D. url"
+  ],
+    answer: "A. href",
+   
+},
+{
   
-  function checkAnswer(selectedIndex) {
-    const currentQ = questions[currentQuestion];
-    const selectedOption = currentQ.options[selectedIndex];
+    question: "What is the purpose of the HTML <head> element?",
+    options: [
+      "A.  It defines the header for a web page.",
+      "B.  It defines a section of navigation links.",
+      "C.  It contains meta-information about the document.",
+      "D.  It displays the main content of the page."
+  ],
+    answer: "C.  It contains meta-information about the document.",
+    
+},
+{
   
-    if (selectedOption === currentQ.correctAnswer) {
-      score++;
-    }
+    question: "Which HTML tag is used to define a table row?",
+    options: [
+      "A.  td",
+      "B.  tr",
+      "C.  th",
+      "D.  table-row"
+  ],
+    answer: "B.  tr",
   
-    currentQuestion++;
+},
+{
   
-    if (currentQuestion < questions.length) {
-      showQuestion();
+    question: "How do you create a line break in HTML?",
+    options: [
+      "A.  lb",
+      "B.  break",
+      "C.  br",
+      "D.  linebreak"
+  ],
+    answer: "C.  br",
+  
+},
+{
+    
+    question: "Which HTML attribute is used to specify an alternate text for an image?",
+    options: [
+        "A.  alt",
+        "B.  caption",
+        "C.  description",
+        "D.  alt-text"
+    ],
+    answer: "A.  alt"
+    
+},
+  // Add more questions here...
+];
+
+// Function to populate the quiz table with questions and options
+function populateQuizTable() {
+  const quizTableBody = document.querySelector('#quiz-table tbody');
+  quizTableBody.innerHTML = '';
+
+  questions.forEach((questionObj, index) => {
+    const row = document.createElement('tr');
+
+    const questionCell = document.createElement('td');
+    questionCell.textContent = `Q${index + 1}: ${questionObj.question}`;
+    row.appendChild(questionCell);
+
+    const optionsCell = document.createElement('td');
+    optionsCell.textContent = questionObj.options.join(', ');
+    row.appendChild(optionsCell);
+
+    quizTableBody.appendChild(row);
+  });
+}
+
+// Function to populate the results table with user's answers and correctness
+function populateResultsTable() {
+  const resultsTableBody = document.querySelector('#results-table tbody');
+  resultsTableBody.innerHTML = '';
+
+  userData.answers.forEach((userAnswer, index) => {
+    const questionObj = questions[index];
+    const row = document.createElement('tr');
+
+    const questionCell = document.createElement('td');
+    questionCell.textContent = `Q${index + 1}: ${questionObj.question}`;
+    row.appendChild(questionCell);
+
+    const userAnswerCell = document.createElement('td');
+    userAnswerCell.textContent = userAnswer;
+    row.appendChild(userAnswerCell);
+
+    const correctAnswerCell = document.createElement('td');
+    correctAnswerCell.textContent = questionObj.answer;
+    row.appendChild(correctAnswerCell);
+
+    const resultCell = document.createElement('td');
+    if (userAnswer === questionObj.answer) {
+      resultCell.textContent = 'Correct';
     } else {
-      showResult();
+      resultCell.textContent = 'Incorrect';
     }
-  }
-  
-  function showResult() {
-    questionElement.textContent = `Quiz Completed! Your Score: ${score}/${questions.length}`;
-    optionsElement.innerHTML = "";
-    submitButton.style.display = "none";
-  }
-  
-  submitButton.addEventListener("click", showQuestion);
-  
-  // Start the quiz when the page loads
-  showQuestion();
-  
+    row.appendChild(resultCell);
+
+    resultsTableBody.appendChild(row);
+  });
+}
+
+// Add an event listener to the "Show Answers" button
+document.getElementById('show-answers-btn').addEventListener('click', showUserAnswers);
+
+// Function to show the user's answers
+function showUserAnswers() {
+  populateResultsTable();
+}
+
+// Call the functions to populate the quiz and results tables initially
+populateQuizTable();
+populateResultsTable();

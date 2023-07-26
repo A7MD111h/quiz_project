@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="/log_in/login.css" />
     <title>Sign in & Sign up Form</title>
     <style></style>
   </head>
@@ -18,18 +18,18 @@
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="email" placeholder="Email" id="emailIn" required/>
+              <div class="error-message" id="emailError"></div>
               
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" id="passwordIn" required/>
+              <!-- <p class="forget_password">forget password</p> -->
             </div>
-            <a href="../index.html" id="loginbtn">
+            <a href="/index.html" id="loginbtn">
             <input type="button" value="Login" class="btn solid" id="submitin"  />
-              
-                <div class="error-message" id="emailError"></div>
+            
             </a>    
-                <p class="forget_password">forget password</p>
           </form>
           <!-- Sign-up form onsubmit="return register()"-->
           <form action="#" class="sign-up-form"  id="sign-up-form" >
@@ -47,7 +47,7 @@
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="confirm Email" id="confirmEmail"/>
-              <div class="error-message" id="confirmEmailError">ajemd</div>
+              <div class="error-message" id="confirmEmailError"></div>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
@@ -69,7 +69,7 @@
                   <option value="English">English</option>
               </select>
           </div>
-            <a href="../index.html">
+            <a href="/index.html">
               <input type="button" class="btn" value="Sign up" id="submitup" />
             </a>
           </form>
@@ -87,7 +87,7 @@
               Sign up
             </button>
           </div>
-          <img src="./logo.png" class="image" alt="" />
+          <img src="/log_in/logo.png" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">
@@ -99,13 +99,13 @@
               Sign in
             </button>
           </div>
-          <img src="./logo.png" class="image" alt="" />
+          <img src="/log_in/logo.png" class="image" alt="" />
         </div>
       </div>
     </div>
 
 </body>
-<script src="./login.js"></script>
+<script src="/log_in/login.js"></script>
 <script> 
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
@@ -135,5 +135,4 @@ form.addEventListener('submit', function (e) {
 */
 
 </script>
-
 </html>

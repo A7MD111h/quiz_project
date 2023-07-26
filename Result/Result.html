@@ -3,16 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Act Code Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- <script src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/log_in/login.css" /> -->
+    <title>Quiz Page</title>
+
+    <link rel="stylesheet" href="/Result/Result.css">
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Act Code Quiz</h1>
-    <div id="question"></div>
-    <div id="options"></div>
-    <button id="submit-btn">Submit</button>
-  </div>
-  <script src="script.js"></script>
+    <div class="containershow">
+    <button id="show-answers-btn" onclick="showUserAnswers()"class="butn btn">Show answers</button>
+    <!-- Add the table to display quiz questions and options here -->
+    <br />
+    <!-- Results table to display user's answers and correctness -->
+    <table id="results-table">
+        <!-- Table header for results -->
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>User's Answer</th>
+                <th>Correct Answer</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <!-- Table body will be populated dynamically using JavaScript -->
+        <tbody></tbody>
+    </table>
+    </div>
+
+    
+  
 </body>
+<script src="Result.js"></script>
 </html>

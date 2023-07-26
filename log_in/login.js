@@ -15,15 +15,14 @@ function register()
     let passwordRegex = /^(?=.*[A-Z])(?=.*\d{2,})(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-    //
-    let obj=JSON.parse(localStorage.getItem("userData"));
-    let userinfo =obj?obj:[];
+    let userinfo =[]
 
     let userData = {
     FirstName: firstName,
     Email: email,
     Password: password,
-    position: position
+    position: position,
+    userAnser00: null
     };
 
      //checking firstname
@@ -62,7 +61,7 @@ function register()
  
 
     localStorage.setItem("userData",JSON.stringify(userData))
-    alert('register succesful')
+    //alert('register succesful')
     return true;
 
     function LocalStore(UserName, Email, Password) {
@@ -96,14 +95,17 @@ buttonsignUp2.addEventListener('click', (event) => {
 function login() {
     let email = document.getElementById('emailIn').value;
     let password = document.getElementById('passwordIn').value;
-
+   
 
     let storedUserData = JSON.parse(localStorage.getItem('userData'));
-// sessionStorage.setItem('firstName','huda');
+
     if (storedUserData) {
         
         if (email === storedUserData.Email && password === storedUserData.Password) {
-            // alert('done')
+            // function myFunction() {
+            //     window.location.href = "/index.html";
+            //   }
+           // alert('done')
             return true
         } else {
             alert('Invalid email or password.');
@@ -133,23 +135,5 @@ buttonlogin.addEventListener('click', (event) => {
         
         }
 });
-
-
-//let buttonlogin = document.querySelector("#submitin")
-// buttonlogin.addEventListener('submit', (e)=> {
-//     console.log('clicked ?');
-//      e.preventDefault()
-//     if (!login()){ 
-//        //window.location.href = '/index.html'
-//        alert('loooool')
-//     }
-//     else{
-//         window.location.href = '../index.html'
-//         console.log(`clicked`);
-//     }
-// })
-
-
-
 
 

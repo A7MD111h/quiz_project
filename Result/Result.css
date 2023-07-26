@@ -1,59 +1,72 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f1f1f1;
-  }
+/* Add CSS styling for the quiz table and results table as needed */
+/* For example, you can add styles for the header, cells, correct/incorrect answers, etc. */
+/* You can also style the entire page to make it visually appealing */
+*{
+  box-sizing: border-box;
+  margin-top: 0px;
+  padding: 0;
+}
+body{
+ 
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  background: rgb(31,37,124);
+  background-image: -o-linear-gradient(330deg, rgb(14,11,50) 0%, rgb(107,44,135) 100%), -o-linear-gradient(330deg, rgb(135,40,113) 0%, rgb(56,23,84) 100%);
+  background-image: linear-gradient(120deg, rgb(14,11,50) 0%, rgb(107,44,135) 100%), linear-gradient(120deg, rgb(135,40,113) 0%, rgb(56,23,84) 100%);
   
-  .quiz-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
   
-  h1 {
-    margin-bottom: 20px;
-  }
+}
+.butn{
+  display: flex;
+  width: 100px;  
+  height: 50px;
+  line-height: normal; /* reset button default spacing*/
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #E5BEEC;
+}
+table{
+  background-color: #E5BEEC;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+table, th, td {
+  border:1px solid black;
   
-  #question {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  
-  #options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .option {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .option:hover {
-    background-color: #e6e6e6;
-  }
-  
-  #submit-btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 16px;
-  }
-  
-  #submit-btn:hover {
-    background-color: #45a049;
-  }
-  
+}
+.quiz-table{
+  border: 1px solid red;
+}
+
+.containershow:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background:rgb(177,57,183);
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: -1;
+}
+.btn {
+  width: 150px;
+  background-color: #991476;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 0 2px 5px  rgba(0, 0, 0, 0.6);
+}
+.btn:hover {
+  background-color: rgb(107,44,135) ;
+}

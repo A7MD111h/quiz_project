@@ -1,7 +1,9 @@
-let questions = [
-
+let userdata= JSON.parse(localStorage.getItem('userdata'));
+let position= userdata.position;
+let questions = {};
+if (position === 'HTML'){
     /////////////////////////////////////HTML Question//////////////////////////////////////
-    {
+    questions =  {
         numb: 1,
         question: "Which HTML tag is used to create a hyperlink?",
         answer: "B. a",
@@ -42,7 +44,7 @@ let questions = [
             "A. img",
             "B. picture",
             "C. image",
-            "D. src"
+            "D.  src"
         ]
     },
     {
@@ -110,10 +112,10 @@ let questions = [
             "C.  description",
             "D.  alt-text"
         ]
-    },
-
-    /////////////////////////////////////CSS Question//////////////////////////////////////
-    {
+    }
+}
+  else if(position == 'CSS') {  /////////////////////////////////////CSS Question//////////////////////////////////////
+    questions =   {
         numb: 11,
         question: "Which CSS property is used to control the spacing between lines of text?",
         answer: "A.  <link rel='stylesheet' href='style.css'",
@@ -222,10 +224,10 @@ let questions = [
             "C.  size",
             "D.  font-style"
         ]
-    },
-
-    /////////////////////////////////////JS Question//////////////////////////////////////
-    {
+    }
+  }
+  else if (position === 'JAVASCRIPT') { /////////////////////////////////////JS Question//////////////////////////////////////
+   questions = {
         numb: 21,
         question: "Which keyword is used to declare a variable in JavaScript?",
         answer: "A.  var",
@@ -334,119 +336,119 @@ let questions = [
             "C.  loop-while",
             "D.  do-while loop"
         ]
-    },
+    }}
 
-    /////////////////////////////////////English Question//////////////////////////////////////
-    {
-        numb: 31,
-        question: "Choose the correct sentence:",
-        answer: "A.  She don't like ice cream.",
-        options: [
-            "A.  She don't like ice cream.",
-            "B.  He doesn't likes ice cream.",
-            "C.  They doesn't like ice cream.",
-            "D.  I don't like ice cream."
-        ]
-    },
-    {
-        numb: 32,
-        question: "Which word is a synonym for 'happy'?",
-        answer: "B.  Joyful",
-        options: [
-            "A.  Sad",
-            "B.  Joyful",
-            "C.  Angry",
-            "D.  Gloomy"
+//     /////////////////////////////////////English Question//////////////////////////////////////
+//     {
+//         numb: 31,
+//         question: "Choose the correct sentence:",
+//         answer: "A.  She don't like ice cream.",
+//         options: [
+//             "A.  She don't like ice cream.",
+//             "B.  He doesn't likes ice cream.",
+//             "C.  They doesn't like ice cream.",
+//             "D.  I don't like ice cream."
+//         ]
+//     },
+//     {
+//         numb: 32,
+//         question: "Which word is a synonym for 'happy'?",
+//         answer: "B.  Joyful",
+//         options: [
+//             "A.  Sad",
+//             "B.  Joyful",
+//             "C.  Angry",
+//             "D.  Gloomy"
 
-        ]
-    },
-    {
-        numb: 33,
-        question: "Identify the correct plural form of 'child':",
-        answer: "D.  children",
-        options: [
-            "A.  childs",
-            "B.  childes",
-            "C.  child's",
-            "D.  children"
-        ]
-    },
+//         ]
+//     },
+//     {
+//         numb: 33,
+//         question: "Identify the correct plural form of 'child':",
+//         answer: "D.  children",
+//         options: [
+//             "A.  childs",
+//             "B.  childes",
+//             "C.  child's",
+//             "D.  children"
+//         ]
+//     },
 
-    {
-        numb: 34,
-        question: "What is the past tense of the verb 'go'?",
-        answer: "B.  Went",
-        options: [
-            "A.  Goed",
-            "B.  Went",
-            "C.  Gone",
-            "D.  Goen"
-        ]
-    },
-    {
-        numb: 35,
-        question: "Choose the correct form of the possessive pronoun:?",
-        answer: "A.  Their's",
-        options: [
-            "A.  Their's",
-            "B.  Theirs",
-            "C.  Theires",
-            "D.  Theirse"
-        ]
-    },
-    {
-        numb: 36,
-        question: "Which sentence is in the active voice?",
-        answer: "C.  John eats the cake.",
-        options: [
-            "A.  The cake was eaten by John.",
-            "B.  John was eating the cake.",
-            "C.  John eats the cake.",
-            "D.  The cake has been eaten."
-        ]
-    },
-    {
-        numb: 37,
-        question: "What is the comparative form of the adjective 'tall'?",
-        answer: "C.  Taller",
-        options: [
-            "A.  Tallest",
-            "B.  Talliest",
-            "C.  Taller",
-            "D.  More tall"
-        ]
-    },
-    {
-        numb: 38,
-        question: "Identify the adverb in the following sentence: 'She sang beautifully.'",
-        answer: "C.  beautifully",
-        options: [
-            "A.  She",
-            "B.  sang",
-            "C.  beautifully",
-            "D.   She sang"
-        ]
-    },
-    {
-        numb: 39,
-        question: "Choose the correct spelling:",
-        answer: "A.  Accomodate",
-        options: [
-            "A.  Accomodate",
-            "B.  Accommodate",
-            "C.  Acommodate",
-            "D.  Accommodatee"
-        ]
-    },
-    {
-        numb: 40,
-        question: "What type of literary device is used in the phrase 'The world is my oyster'??",
-        answer: "B.  Metaphor",
-        options: [
-            "A.  Simile",
-            "B.  Metaphor",
-            "C.  Personification",
-            "D.  Hyperbole"
-        ]
-    },
-];
+//     {
+//         numb: 34,
+//         question: "What is the past tense of the verb 'go'?",
+//         answer: "B.  Went",
+//         options: [
+//             "A.  Goed",
+//             "B.  Went",
+//             "C.  Gone",
+//             "D.  Goen"
+//         ]
+//     },
+//     {
+//         numb: 35,
+//         question: "Choose the correct form of the possessive pronoun:?",
+//         answer: "A.  Their's",
+//         options: [
+//             "A.  Their's",
+//             "B.  Theirs",
+//             "C.  Theires",
+//             "D.  Theirse"
+//         ]
+//     },
+//     {
+//         numb: 36,
+//         question: "Which sentence is in the active voice?",
+//         answer: "C.  John eats the cake.",
+//         options: [
+//             "A.  The cake was eaten by John.",
+//             "B.  John was eating the cake.",
+//             "C.  John eats the cake.",
+//             "D.  The cake has been eaten."
+//         ]
+//     },
+//     {
+//         numb: 37,
+//         question: "What is the comparative form of the adjective 'tall'?",
+//         answer: "C.  Taller",
+//         options: [
+//             "A.  Tallest",
+//             "B.  Talliest",
+//             "C.  Taller",
+//             "D.  More tall"
+//         ]
+//     },
+//     {
+//         numb: 38,
+//         question: "Identify the adverb in the following sentence: 'She sang beautifully.'",
+//         answer: "C.  beautifully",
+//         options: [
+//             "A.  She",
+//             "B.  sang",
+//             "C.  beautifully",
+//             "D.   She sang"
+//         ]
+//     },
+//     {
+//         numb: 39,
+//         question: "Choose the correct spelling:",
+//         answer: "A.  Accomodate",
+//         options: [
+//             "A.  Accomodate",
+//             "B.  Accommodate",
+//             "C.  Acommodate",
+//             "D.  Accommodatee"
+//         ]
+//     },
+//     {
+//         numb: 40,
+//         question: "What type of literary device is used in the phrase 'The world is my oyster'??",
+//         answer: "B.  Metaphor",
+//         options: [
+//             "A.  Simile",
+//             "B.  Metaphor",
+//             "C.  Personification",
+//             "D.   Hyperbole"
+//         ]
+//     },
+// ];
