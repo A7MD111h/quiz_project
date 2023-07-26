@@ -122,18 +122,20 @@ function login() {
 
 
 let buttonlogin = document.querySelector("#submitin");
-
+let isloged = false;
 buttonlogin.addEventListener('click', (event) => {
     event.preventDefault();
     if (!login()) {
-        
-        console.log("Login failed.");
+        isloged = false;
+        //console.log("Login failed.");
     } else {
-        console.log("login succes");
-
+        isloged=true;
+       // console.log("login succes");
+         localStorage.setItem("islolged",JSON.stringify(isloged))
             window.location.href = "../index.html";
         
-        }
+     }
 });
+
 
 

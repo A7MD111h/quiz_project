@@ -9,6 +9,9 @@ const resultBox = document.querySelector('.result-box');
 const tryAgainBtn = document.querySelector('.tryAgain-btn');
 const goHomeBtn = document.querySelector('.goHome-btn');
 const userData = JSON.parse(localStorage.getItem('userData'));
+const btn_login = document.getElementById('btn_login');
+const btn_logout = document.getElementById('btn_logout');
+
 // const testing =document.querySelector('.testing');
 // testing.addEventListener('click', (e)=>{
 //     const userData = JSON.parse(localStorage.getItem('userData'));
@@ -26,11 +29,8 @@ if (!userData.answers){
     // localStorage.setItem("userData", JSON.stringify({
         userData.answers = []
 }
-// the welcoming message
-let homeWelcome = document.querySelector("#homeUserName")
-let datasaved = JSON.parse(localStorage.getItem("userData"));
-homeWelcome.innerText
-homeWelcome.append(datasaved.FirstName);
+
+
 console.log(userData.position);
 var quizshow=userData.position;
 
@@ -396,8 +396,9 @@ continueBtn.onclick = () => {
 
    showQuestions(questionCount);
    questionCounter(1);
-   headerScore();
-   startCountDown();
+   startCountdown();
+//    headerScore();
+
 }
 //hid start btn 
 function hide() {
@@ -440,24 +441,31 @@ let userScore = 0;
 let countQt = 1;
 
 //the counter tat is gonna count the time for the test
-function startCountDown (){
+let  time = 3.50;
+let quizeTimeInMin = time *60 * 60;
+let  quizeTime = quizeTimeInMin /60;
+
+let counting = document.getElementById('cuonter-down');
+
+function startCountdown (){
     let quizeTimer =setInterval(function(){
         if (quizeTime <= 0) {
-            clearInterval(quizeTimer);
-            showResultBox();
+        clearInterval(quizeTimer);
+        showResultBox();
         } else {
             quizeTime--;
             let sec=Math.floor(quizeTime %60);
             let min=Math.floor(quizeTime/60)%60;
             counting.innerHTML=` ${min}:${sec}`;
-        }
-    }, 1000)
+            }
+    },1000)
+
 }
 // startCountDown();
-let time = 5;
-let quizeTimeInMin = time * 60 * 60;
-let quizeTime = quizeTimeInMin / 60;
-let counting = document.getElementById('cuonter-down');
+// let time = 5;
+// let quizeTimeInMin = time * 60 * 60;
+// let quizeTime = quizeTimeInMin / 60;
+// let counting = document.getElementById('cuonter-down');
 
 // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 const nextBtn = document.querySelector('.next-btn');
@@ -534,7 +542,7 @@ function optionSelected(answer) {
       answer.classList.add('correct');
       userScore += 1;
       nextBtn.classList.add('active');
-      headerScore();
+    //   headerScore();
     } else {
       answer.classList.add('incorrect');
     }
@@ -568,10 +576,10 @@ function questionCounter(index){
 }
 
 // this the user score it's gonna be up at the right side
-function headerScore(){
-    const headerScoreText = document.querySelector('.header-score');
-    headerScoreText.textContent = `Score: ${userScore} / 10`;
-}
+// function headerScore(){
+//     const headerScoreText = document.querySelector('.header-score');
+//     headerScoreText.textContent = `Score: ${userScore} / 10`;
+// }
 
 // once the user finish this function is gonna calculate the user result and the percentage
 function showResultBox() {
@@ -639,3 +647,34 @@ tryAgainBtn.addEventListener('click' , function(){
     window.open("./Result/Result.html" , "_blank")
 })
 
+// the welcoming message
+let homeWelcome = document.querySelector("#homeUserName")
+let datasaved = JSON.parse(localStorage.getItem("userData"));
+// homeWelcome.innerText
+// homeWelcome.append(datasaved.FirstName);
+
+//logout
+let dataisloged = JSON.parse(localStorage.getItem("islolged"))
+btn_logout.addEventListener('click', function(){
+    dataisloged=false;
+    localStorage.setItem("isloged", JSON.stringify(false));
+    btn_login.style.display = "inline-block";
+    startBtn.style.display = "none";
+    btn_logout.style.display = "none";
+    // console.log(dataisloged)
+    homeUserName.textContent = "Welcome in Quiz";
+    // skill.textContent = `We are excited to discover your skills,The exam comprises 5 questions, with only 10 seconds for each response.!`
+})
+//defult
+
+if (dataisloged == true){
+    // console.log(dataisloged)
+
+    btn_login.style.display = "none";
+ 
+    btn_logout.style.display = "inline-block";
+    //writing on homepage
+    homeUserName.textContent = "Welcome " + userData.FirstName + " " + "to Quiz";
+    // skill.textContent = `We are excited to discover your skills in(${userData.position}),The exam comprises 5 questions, with only 10 seconds for each response.!`
+
+}
