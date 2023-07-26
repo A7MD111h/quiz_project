@@ -96,10 +96,10 @@ buttonsignUp2.addEventListener('click', (event) => {
 function login() {
     let email = document.getElementById('emailIn').value;
     let password = document.getElementById('passwordIn').value;
-   
+
 
     let storedUserData = JSON.parse(localStorage.getItem('userData'));
-
+// sessionStorage.setItem('firstName','huda');
     if (storedUserData) {
         
         if (email === storedUserData.Email && password === storedUserData.Password) {

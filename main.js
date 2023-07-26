@@ -6,10 +6,23 @@ const continueBtn = document.querySelector('.continue-btn');
 const quizSection = document.querySelector('.quiz-section');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
+<<<<<<< HEAD
+// const tryAgainBtn = document.querySelector('.tryAgain-btn');
+=======
 const showResultAns = document.querySelector('.showResultAns-btn');
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
 const goHomeBtn = document.querySelector('.goHome-btn');
 const R = document.querySelector('.R');
 const userData = JSON.parse(localStorage.getItem('userData'));
+<<<<<<< HEAD
+
+let countQt=1;
+//userData.position="JAVASCRIPT";
+//HTML
+//CSS
+//JAVASCRIPT
+//ENGLISH
+=======
 userData.position="JAVASCRIPT";
 let questionCount = 0;
 let questionLooper=0 ;
@@ -18,6 +31,7 @@ let userScore = 0;
 let countQt = 1;
 let userAnswerR=[];
 
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
 
 
 
@@ -49,8 +63,25 @@ continueBtn.onclick = () => {
    showQuestions(questionCount);
    questionCounter(1);
    headerScore();
+startCountdown();
 }
 
+<<<<<<< HEAD
+// tryAgainBtn.onclick = () => {
+//     quizBox.classList.add('active');
+//     nextBtn.classList.remove('active');
+//     resultBox.classList.remove('active');
+
+//     questionCount = questionCount-9;
+//     questionNumb = 1;
+//     userScore = 0;
+//     countQt=1;
+//     showQuestions(questionCount);
+//     questionCounter(questionNumb);
+//     headerScore();
+    
+// }
+=======
 // the try again button after u finish u could try the test one more time
 showResultAns.onclick = () => {
 let i=0
@@ -72,6 +103,7 @@ let i=0
     // Re.classList.add("active")
 
 }
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
 
 // go to home page this butten leads u to the main page
 
@@ -86,7 +118,12 @@ goHomeBtn.onclick = () => {
     countQt=1;
     showQuestions(questionCount);
     questionCounter(questionNumb);
+<<<<<<< HEAD
+    //to hide button start quize when go to home page 
+hide();
+=======
     location.reload();
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
 }
 
 
@@ -159,8 +196,16 @@ nextBtn.onclick = () => {
 // getting questions and options from array
 const optionList = document.querySelector('.option-list');
 
+<<<<<<< HEAD
+// getting questions and options from array
+
+
+    function showQuestions(index) {
+        
+=======
 function showQuestions(index) {
 
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
     const questionText = document.querySelector('.question-text');
     questionText.textContent = `${countQt++}.${questions[index].question}`;
 
@@ -184,9 +229,12 @@ function optionSelected (answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
     let allOptions = optionList.children.length;
+<<<<<<< HEAD
+=======
 
 
     // if the user answer correctly raise his score
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
     if (userAnswer == correctAnswer) {
         nextBtn.classList.add('active');
         for (let i = 0; i < allOptions; i++){
@@ -209,6 +257,7 @@ function optionSelected (answer) {
     //if user selected, disabled all' options
     for (let i = 0; i < allOptions; i++){
         optionList.children[i].classList.add('disabled');
+
     }
 
     nextBtn.classList.add('active');
@@ -252,10 +301,27 @@ function showResultBox() {
             clearInterval(progress);
         }
     }, speed);
-    
+     
 }
 
+<<<<<<< HEAD
+// hi
+
+// 
+
+
+    
+
+let  time = 1;
+let quizeTimeInMin = time *60 * 60;
+ let  quizeTime =quizeTimeInMin /60;
+
+let counting = document.getElementById('cuonterdown');
+
+
+=======
 // once the quiz start it's gonna count down
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
 function startCountdown (){
     let quizeTimer =setInterval(function(){
         if (quizeTime <= 0) {
@@ -268,9 +334,29 @@ function startCountdown (){
             counting.innerHTML=` ${min}:${sec}`;
             }
     },1000)
+
+<<<<<<< HEAD
 }
-startCountdown();
+
+// startCountdown();
+//
+function hide() {
+startBtn.style.display="none"
+
+}
+// home user name 
+let homeUN = document.querySelector("#homeUserName")
+=======
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
+
+
+<<<<<<< HEAD
+homeUN.innerText
+homeUN.append(datasaved.FirstName);
 
 
 
+//
+=======
 //test
+>>>>>>> 70d51238d2001a15cdb9e861119220e952e0b2b0
