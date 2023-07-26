@@ -518,48 +518,92 @@ function showQuestions(index) {
     }
     
 }
-// Add a variable to keep track of whether the user has already answered the current question
-let answered = false;
-function optionSelected(answer) {
-    // Check if the question has already been answered
-    if (answered) {
-      return;
-    }
-  
+
+function optionSelected (answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
-  
-    // If the user answers correctly
+    let allOptions = optionList.children.length;
+
+    for (let i = 0; i < allOptions; i++){
+        optionList.children[i].classList.add('disabled');
+    }
+     nextBtn.classList.add('active');
+
+
+    // if the user answer correctly raise his score
     if (userAnswer == correctAnswer) {
-      answer.classList.add('correct');
-      userScore += 1;
-      nextBtn.classList.add('active');
-      headerScore();
-    } else {
-      answer.classList.add('incorrect');
+        answer.classList.add('correct');
+        userScore += 1;
+        headerScore();
+        //    for (let i = 0; i < allOptions; i++){
+        //     optionList.children[i].classList.add('disabled');
+        // }
     }
-  
-    // Mark the question as answered
-    answered = true;
-  
-    // Save the user's answer in the userData
-    userData.answers[questionCount] = userAnswer;
-    localStorage.setItem('userData', JSON.stringify(userData));
-  
-    // Disable further selections after the user answers
-    const option = document.querySelectorAll('.option');
-    for (let i = 0; i < option.length; i++) {
-      option[i].removeEventListener('click', function () {
-        optionSelected(this);
-      });
+    else {
+        answer.classList.add ('incorrect')
+       // optionList.children[i].classList.add('disabled');
+        // if answer incorrest, auto selected correct answer
+        // for (let i = 0; i < allOptions; i++){
+        //     optionList.children[i].classList.add('disabled');
+        // }
+        // nextBtn.classList.add('active');
+        // for (let i = 0; i < allOptions; i++){
+        //     optionList.children[i].classList.add('disabled');
+        // }
     }
+ 
+
+    // //if user selected, disabled all' options
+    // for (let i = 0; i < allOptions; i++){
+    //     optionList.children[i].classList.add('disabled');
+    // }
+
+    // nextBtn.classList.add('active');
+}
+
+
+
+// // Add a variable to keep track of whether the user has already answered the current question
+// let answered = false;
+// function optionSelected(answer) {
+//     // Check if the question has already been answered
+//     if (answered) {
+//       return;
+//     }
   
-    // Enable the next button after the user answers
-    nextBtn.classList.add('active');
-  }
+//     let userAnswer = answer.textContent;
+//     let correctAnswer = questions[questionCount].answer;
   
+//     // If the user answers correctly
+//     if (userAnswer == correctAnswer) {
+//       answer.classList.add('correct');
+//       userScore += 1;
+//       nextBtn.classList.add('active');
+//       headerScore();
+//     } else {
+//       answer.classList.add('incorrect');
+//     }
+//     // Mark the question as answered
+//     answered = true;
+//     // Save the user's answer in the userData
+//     userData.answers[questionCount] = userAnswer;
+//     localStorage.setItem('userData', JSON.stringify(userData));
+//     // Disable further selections after the user answers
+//     const option = document.querySelectorAll('.option');
+//     for (let i = 0; i < option.length; i++) {
+//       option[i].removeEventListener('click', function () {
+//         optionSelected(this);
+//       });
+//     }
+//   // if answer incorrest, auto selected correct answer
+//         //  for (let i = 0; i < allOptions; i++){
+//         //     optionList.children[i].classList.add('disabled');
+//         // }
+//         nextBtn.classList.add('active');
+//     // Enable the next button after the user answers
+//   }
   
-  
+ 
   
 // this is the statment saying no. out of 10 it's gonna be down at the left side
 function questionCounter(index){
