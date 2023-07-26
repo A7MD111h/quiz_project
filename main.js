@@ -636,20 +636,32 @@ function showResultBox() {
     let progressStartValue = -1;
     let progressEndValue = (userScore / 10) * 100;
     let speed = 20;
+    
+    
 
     // the cicule of percentage
     let progress = setInterval(() => {
         progressStartValue++;
 
         progressValue.textContent = `${progressStartValue}%`;
-        circularProgress.style.background = `conic-gradient(#c40094 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+        if (progressStartValue<50) {
+             circularProgress.style.background = `conic-gradient(#f00 ${progressStartValue * 3.6}deg, rgba(255, 0, 0, .1) 0deg)`;
+
+            
+         }
+   else      
+        circularProgress.style.background = `conic-gradient(#0f0 ${progressStartValue * 3.6}deg, rgba(0, 255, 0, .1) 0deg)`;
+    
 
         if (progressStartValue == progressEndValue) {
             clearInterval(progress);
         }
     }, speed);
+   
     
 }
+
+
 
 // const StringMinutes = 1;
 // let time = StringMinutes*60;
@@ -687,3 +699,5 @@ function showResultBox() {
 tryAgainBtn.addEventListener('click' , function(){
     window.open("./Result/Result.html" , "_blank")
 });
+
+
