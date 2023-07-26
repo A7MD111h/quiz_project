@@ -396,8 +396,9 @@ continueBtn.onclick = () => {
 
    showQuestions(questionCount);
    questionCounter(1);
+startCountdown();
    headerScore();
-   startCountDown();
+
 }
 //hid start btn 
 function hide() {
@@ -454,10 +455,32 @@ function startCountDown (){
     }, 1000)
 }
 // startCountDown();
-let time = 5;
-let quizeTimeInMin = time * 60 * 60;
-let quizeTime = quizeTimeInMin / 60;
+
+
+let  time = 3.50;
+let quizeTimeInMin = time *60 * 60;
+ let  quizeTime =quizeTimeInMin /60;
+
 let counting = document.getElementById('cuonter-down');
+
+function startCountdown (){
+    let quizeTimer =setInterval(function(){
+        if (quizeTime <= 0) {
+        clearInterval(quizeTimer);
+        showResultBox();
+        } else {
+            quizeTime--;
+            let sec=Math.floor(quizeTime %60);
+            let min=Math.floor(quizeTime/60)%60;
+            counting.innerHTML=` ${min}:${sec}`;
+            }
+    },1000)
+
+}
+// let time = 5;
+// let quizeTimeInMin = time * 60 * 60;
+// let quizeTime = quizeTimeInMin / 60;
+// let counting = document.getElementById('cuonter-down');
 
 // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 const nextBtn = document.querySelector('.next-btn');
