@@ -34,6 +34,77 @@ if (!userData.answers){
 console.log(userData.position);
 var quizshow=userData.position;
 
+// this is the start test button 
+startBtn.onclick = () => {
+    popupInfo.classList.add('active');
+    main.classList.add('active');
+    let home = document.querySelector('#home').style.display = 'none'
+}
+
+// this is the exit test button 
+exitBtn.onclick = () => {
+    popupInfo.classList.remove('active');
+    main.classList.remove('active')
+}
+
+// this it the button that leads u to the test
+continueBtn.onclick = () => {
+   quizSection.classList.add('active');
+   popupInfo.classList.remove('active');
+   main.classList.remove('active');
+   quizBox.classList.add('active');
+
+   showQuestions(questionCount);
+   questionCounter(1);
+   headerScore();
+   startCountDown();
+}
+
+//hiding start btn 
+function hide() {
+  startBtn.style.display="none"
+  }
+
+// the try again button after u finish u could try the test one more time
+// tryAgainBtn.onclick = () => {
+//     quizBox.classList.add('active');
+//     nextBtn.classList.remove('active');
+//     resultBox.classList.remove('active');
+
+//     questionCount = 0;
+//     questionNumb = 1;
+//     userScore = 0;
+//     showQuestions(questionCount);
+//     questionCounter(questionNumb);
+
+//     headerScore();
+// }
+
+// go to home page this butten leads u to the main page
+goHomeBtn.onclick = () => {
+    quizSection.classList.remove('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = questionCount;
+    questionNumb = 1;
+    userScore = 0;
+    countQt=1;
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+    hide();
+}
+
+
+if (!userData.answers){
+    userData.answers = []
+}
+
+
+
+
+
+
 var questions = [];
   if (quizshow === 'HTML'){
     /////////////////////////////////////HTML Question//////////////////////////////////////
@@ -373,6 +444,46 @@ var questions = [];
     }]
   }
 
+
+// this it the button that leads u to the test
+continueBtn.onclick = () => {
+   quizSection.classList.add('active');
+   popupInfo.classList.remove('active');
+   main.classList.remove('active');
+   quizBox.classList.add('active');
+
+   showQuestions(questionCount);
+   questionCounter(1);
+    startCountdown();
+   headerScore();
+
+}
+let questionCount = 0;
+let questionNumb = 1;
+let userScore = 0;
+let countQt = 1;
+
+let  time = 3.50;
+let quizeTimeInMin = time *60 * 60;
+ let  quizeTime =quizeTimeInMin /60;
+
+let counting = document.getElementById('cuonter-down');
+//the counter tat is gonna count the time for the test
+function startCountdown (){
+    let quizeTimer =setInterval(function(){
+        if (quizeTime <= 0) {
+        clearInterval(quizeTimer);
+        showResultBox();
+        } else {
+            quizeTime--;
+            let sec=Math.floor(quizeTime %60);
+            let min=Math.floor(quizeTime/60)%60;
+            counting.innerHTML=` ${min}:${sec}`;
+            }
+    },1000)
+
+}
+
 // this is the start test button 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
@@ -435,37 +546,13 @@ goHomeBtn.onclick = () => {
     hide();
 }
 
-let questionCount = 0;
-let questionNumb = 1;
-let userScore = 0;
-let countQt = 1;
+
 
 //the counter tat is gonna count the time for the test
-let  time = 3.50;
-let quizeTimeInMin = time *60 * 60;
-let  quizeTime = quizeTimeInMin /60;
 
-let counting = document.getElementById('cuonter-down');
 
-function startCountdown (){
-    let quizeTimer =setInterval(function(){
-        if (quizeTime <= 0) {
-        clearInterval(quizeTimer);
-        showResultBox();
-        } else {
-            quizeTime--;
-            let sec=Math.floor(quizeTime %60);
-            let min=Math.floor(quizeTime/60)%60;
-            counting.innerHTML=` ${min}:${sec}`;
-            }
-    },1000)
 
-}
-// startCountDown();
-// let time = 5;
-// let quizeTimeInMin = time * 60 * 60;
-// let quizeTime = quizeTimeInMin / 60;
-// let counting = document.getElementById('cuonter-down');
+
 
 // this button is gonna allow u to go to the next question if u did not chose any answer it's gonna be disabled at the end it's gonna call the show result
 const nextBtn = document.querySelector('.next-btn');
@@ -595,20 +682,32 @@ function showResultBox() {
     let progressStartValue = -1;
     let progressEndValue = (userScore / 10) * 100;
     let speed = 20;
+    
+    
 
     // the cicule of percentage
     let progress = setInterval(() => {
         progressStartValue++;
 
         progressValue.textContent = `${progressStartValue}%`;
-        circularProgress.style.background = `conic-gradient(#c40094 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+        if (progressStartValue<50) {
+             circularProgress.style.background = `conic-gradient(#f00 ${progressStartValue * 3.6}deg, rgba(255, 0, 0, .1) 0deg)`;
+
+            
+         }
+   else      
+        circularProgress.style.background = `conic-gradient(#0f0 ${progressStartValue * 3.6}deg, rgba(0, 255, 0, .1) 0deg)`;
+    
 
         if (progressStartValue == progressEndValue) {
             clearInterval(progress);
         }
     }, speed);
+   
     
 }
+
+
 
 // const StringMinutes = 1;
 // let time = StringMinutes*60;
@@ -645,36 +744,4 @@ function showResultBox() {
 //     }
 tryAgainBtn.addEventListener('click' , function(){
     window.open("./Result/Result.html" , "_blank")
-})
-
-// the welcoming message
-let homeWelcome = document.querySelector("#homeUserName")
-let datasaved = JSON.parse(localStorage.getItem("userData"));
-// homeWelcome.innerText
-// homeWelcome.append(datasaved.FirstName);
-
-//logout
-let dataisloged = JSON.parse(localStorage.getItem("islolged"))
-btn_logout.addEventListener('click', function(){
-    dataisloged=false;
-    localStorage.setItem("isloged", JSON.stringify(false));
-    btn_login.style.display = "inline-block";
-    startBtn.style.display = "none";
-    btn_logout.style.display = "none";
-    // console.log(dataisloged)
-    homeUserName.textContent = "Welcome in Quiz";
-    // skill.textContent = `We are excited to discover your skills,The exam comprises 5 questions, with only 10 seconds for each response.!`
-})
-//defult
-
-if (dataisloged == true){
-    // console.log(dataisloged)
-
-    btn_login.style.display = "none";
- 
-    btn_logout.style.display = "inline-block";
-    //writing on homepage
-    homeUserName.textContent = "Welcome " + userData.FirstName + " " + "to Quiz";
-    // skill.textContent = `We are excited to discover your skills in(${userData.position}),The exam comprises 5 questions, with only 10 seconds for each response.!`
-
-}
+});
