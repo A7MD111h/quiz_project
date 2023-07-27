@@ -110,6 +110,12 @@ form.sign-in-form {
   font-weight: 500;
 }
 
+input.wrong{
+}
+input.wrong::placeholder{
+  color: #ff0000 !important;
+}
+
 .forget_password {
   padding: 0.7rem 0;
   font-size: 1rem;

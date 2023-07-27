@@ -234,7 +234,7 @@ body {
 
 .quiz-section {
     position: relative;
-    left: -50%;
+    left: -100%;
     width: 100%;
     background: #09001d;
     display: flex;
@@ -479,4 +479,10 @@ body {
 .buttons button:nth-child(2):hover {
     background: #c40094;
     color: #fff;
+}
+
+.option.selected{
+    background: #09001d !important;
+    color: #e5ffee !important;
+    border-color: #e5ffee !important;
 }
