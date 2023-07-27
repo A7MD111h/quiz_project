@@ -1,9 +1,10 @@
 // Fetch userData from localStorage
-let userData = JSON.parse(localStorage.getItem("userData"));
-console.log(userData);
+let userData = JSON.parse(localStorage.userData)
+console.log(userData[0])
 userData = userData.filter((e) => e.email === localStorage.emailInUse);
-userData = userData[0];
+userData = userData[0]
 let userposition = userData.position
+console.log(userData)
 
 // Sample questions array (replace this with your actual questions)
 var questions = [];
@@ -299,7 +300,7 @@ if (userposition === "HTML") {
     },
   ];
 }
-
+let userAnswer;
 // Function to populate the quiz table with questions and options
 function populateQuizTable() {
   userAnswers = userData.answers;
@@ -322,6 +323,7 @@ function populateQuizTable() {
 function populateResultsTable() {
   const resultsTableBody = document.querySelector("#results-table tbody");
   resultsTableBody.innerHTML = "";
+  console.log(userData)
 
   userData.answers.forEach((userAnswer, index) => {
     const questionObj = questions[index];
