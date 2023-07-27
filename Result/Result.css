@@ -6,18 +6,17 @@
   margin-top: 0px;
   padding: 0;
 }
-body{
- 
+
+body {
   width: 90%;
   margin: 0 auto;
   margin-top: 3rem;
   background: rgb(31,37,124);
   background-image: -o-linear-gradient(330deg, rgb(14,11,50) 0%, rgb(107,44,135) 100%), -o-linear-gradient(330deg, rgb(135,40,113) 0%, rgb(56,23,84) 100%);
   background-image: linear-gradient(120deg, rgb(14,11,50) 0%, rgb(107,44,135) 100%), linear-gradient(120deg, rgb(135,40,113) 0%, rgb(56,23,84) 100%);
-  
-  
 }
-.butn{
+
+.butn {
   display: flex;
   width: 100px;  
   height: 50px;
@@ -26,16 +25,20 @@ body{
   align-items: center;
   justify-content: center;
   background-color: #E5BEEC;
+  opacity: 0;
+  pointer-events: none;
 }
-table{
+
+table {
   background-color: #E5BEEC;
   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
+
 table, th, td {
   border:1px solid black;
-  
 }
-.quiz-table{
+
+.quiz-table {
   border: 1px solid red;
 }
 
@@ -52,6 +55,7 @@ table, th, td {
   border-radius: 50%;
   z-index: -1;
 }
+
 .btn {
   width: 150px;
   background-color: #991476;
@@ -67,6 +71,7 @@ table, th, td {
   transition: 0.5s;
   box-shadow: 0 2px 5px  rgba(0, 0, 0, 0.6);
 }
+
 .btn:hover {
   background-color: rgb(107,44,135) ;
 }
