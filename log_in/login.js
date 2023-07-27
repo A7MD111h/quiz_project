@@ -1,4 +1,7 @@
+
 // Validating register form
+
+
 function register() {
   let username = document.getElementById("firstName");
   let email = document.getElementById("email");
@@ -69,9 +72,9 @@ function register() {
   preData.push(userData);
 
   localStorage.setItem("userData", JSON.stringify(preData));
-  localStorage.setItem("isLogedIn", "false");
+  localStorage.setItem("isLogedIn", "true");
   localStorage.emailInUse = email.value;
-
+    console.log(localStorage.userData);
   return signUp;
 
   //   function LocalStore(UserName, Email, Password) {
