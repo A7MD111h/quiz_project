@@ -480,3 +480,9 @@ body {
     background: #c40094;
     color: #fff;
 }
+
+.option.selected{
+    background: #09001d !important;
+    color: #e5ffee !important;
+    border-color: #e5ffee !important;
+}
