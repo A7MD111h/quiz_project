@@ -45,17 +45,17 @@ exitBtn.onclick = () => {
 };
 
 // this it the button that leads u to the test
-continueBtn.onclick = () => {
-   quizSection.classList.add('active');
-   popupInfo.classList.remove('active');
-   main.classList.remove('active');
-   quizBox.classList.add('active');
+// continueBtn.onclick = () => {
+//    quizSection.classList.add('active');
+//    popupInfo.classList.remove('active');
+//    main.classList.remove('active');
+//    quizBox.classList.add('active');
 
-   showQuestions(questionCount);
-   questionCounter(1);
-   headerScore();
-   startCountDown();
-}
+//    showQuestions(questionCount);
+//    questionCounter(1);
+//    headerScore();
+//    startCountDown();
+// }
 
 //hiding start btn
 function hide() {
@@ -93,7 +93,10 @@ goHomeBtn.onclick = () => {
 };
 
 
-
+let questionCount = 0;
+let questionNumb = 1;
+let userScore = 0;
+let countQt = 1;
 
 
 
