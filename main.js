@@ -555,12 +555,12 @@ function updateLocal() {
 
 // once the user finish this function is gonna calculate the user result and the percentage
 function showResultBox() {
+
   quizBox.classList.remove("active");
   resultBox.classList.add("active");
 
   const scoreText = document.querySelector(".score-text");
   scoreText.textContent = `Your Score ${userScore} out of 10`;
-
   // this is the percentage calculation
   const circularProgress = document.querySelector(".circular-progress");
   const progressValue = document.querySelector(".progress-value");
