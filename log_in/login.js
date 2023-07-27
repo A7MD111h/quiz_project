@@ -1,4 +1,7 @@
+
 // Validating register form
+
+
 function register() {
   let username = document.getElementById("firstName");
   let email = document.getElementById("email");
@@ -6,7 +9,8 @@ function register() {
   let password = document.getElementById("password");
   let confirmPassword = document.getElementById("confirmPassword");
   let position = document.getElementById("position");
-
+  
+  
   let regexName = /^[A-Za-z]+$/;
   let passwordRegex =
     /^(?=.*[A-Z])(?=.*\d{1,})(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/;
@@ -59,6 +63,7 @@ function register() {
   }
 
   if (signUp) {
+    userData.username = username.value ,
     userData.password = password.value;
     userData.email = email.value;
     userData.position = position.value;
@@ -69,9 +74,9 @@ function register() {
   preData.push(userData);
 
   localStorage.setItem("userData", JSON.stringify(preData));
-  localStorage.setItem("isLogedIn", "false");
+  localStorage.setItem("isLogedIn", "true");
   localStorage.emailInUse = email.value;
-
+    console.log(localStorage.userData);
   return signUp;
 
   //   function LocalStore(UserName, Email, Password) {
