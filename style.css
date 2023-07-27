@@ -486,3 +486,87 @@ body {
     color: #e5ffee !important;
     border-color: #e5ffee !important;
 }
+
+
+  @media (max-width: 576px) {
+    .header {
+      padding: 10px 5%;
+    }
+  
+    .navbar {
+      display: none;
+    }
+  
+    .home-content h1 {
+      font-size: 40px;
+    }
+  
+    .About_us-content h1 {
+      font-size: 40px;
+    }
+  
+    /* Adjust other styles for small devices as needed */
+  }
+  
+  /* Medium devices (576px - 768px) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    .header {
+      padding: 15px 5%;
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      top: 55px;
+      right: 5%;
+    }
+  
+    .navbar a {
+      margin: 10px 0;
+    }
+  
+    .home-content h1 {
+      font-size: 50px;
+    }
+  
+    .About_us-content h1 {
+      font-size: 50px;
+    }
+  
+    /* Adjust other styles for medium devices as needed */
+  }
+  
+  /* Large devices (768px - 992px) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .header {
+      padding: 15px 5%;
+    }
+  
+    .navbar {
+      justify-content: flex-end;
+    }
+  
+    .home-content h1 {
+      font-size: 50px;
+    }
+  
+    .About_us-content h1 {
+      font-size: 50px;
+    }
+  
+    /* Adjust other styles for large devices as needed */
+  }
+  
+  /* Extra-large devices (992px - 1200px) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+    .home-content h1 {
+      font-size: 60px;
+    }
+  
+    .About_us-content h1 {
+      font-size: 60px;
+    }
+  
+    /* Adjust other styles for extra-large devices as needed */
+  }
