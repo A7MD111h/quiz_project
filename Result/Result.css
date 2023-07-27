@@ -75,3 +75,20 @@ table, th, td {
 .btn:hover {
   background-color: rgb(107,44,135) ;
 }
+
+
+.go_home{
+  width: 150px;
+  background-color: #991476;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 0 2px 5px  rgba(0, 0, 0, 0.6);
+}

@@ -9,7 +9,8 @@ function register() {
   let password = document.getElementById("password");
   let confirmPassword = document.getElementById("confirmPassword");
   let position = document.getElementById("position");
-
+  
+  
   let regexName = /^[A-Za-z]+$/;
   let passwordRegex =
     /^(?=.*[A-Z])(?=.*\d{1,})(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/;
@@ -62,6 +63,7 @@ function register() {
   }
 
   if (signUp) {
+    userData.username = username.value ,
     userData.password = password.value;
     userData.email = email.value;
     userData.position = position.value;
