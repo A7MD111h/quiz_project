@@ -100,7 +100,7 @@ exitBtn.addEventListener("click", showPopUp);
 function showPopUp() {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
-  window.location.href = "../index.html";
+  window.location.href = "./index.html";
 }
 
 //hiding start btn
