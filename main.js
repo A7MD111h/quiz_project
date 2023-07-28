@@ -122,7 +122,7 @@ goHomeBtn.onclick = () => {
   showQuestions(questionCount);
   questionCounter(questionNumb);
   hide();
-  window.location.href = "../index.html";
+  window.location.href = "./index.html";
   btn_login.style.display = "none";
 
 };
