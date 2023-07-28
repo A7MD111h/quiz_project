@@ -25,8 +25,9 @@ let userData = JSON.parse(
 
 let welcomeName;
 let posiQ;
-let isLogedIn = JSON.parse(localStorage.isLogedIn);
-console.log(isLogedIn)
+let isLogedIn = false;
+localStorage.setItem('isLogedIn', JSON.stringify(isLogedIn));
+//console.log(isLogedIn)
 
 if (isLogedIn == null || isLogedIn == undefined) {
   localStorage.isLogedIn = "false";
@@ -37,7 +38,8 @@ if(!isLogedIn) {
   startBtn.removeEventListener("click", showLogin);
   startBtn.textContent = "Login to start!";
   startBtn.addEventListener("click", () => {
-    window.location.href = "login/login.html";
+    window.location.href = "./login/login.html";
+    
   })
 }else{
   startBtn.addEventListener("click", showLogin);
