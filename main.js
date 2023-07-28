@@ -25,7 +25,7 @@ let userData = JSON.parse(
 
 let welcomeName;
 let posiQ;
-let isLogedIn = false;
+//let isLogedIn = false;
 localStorage.setItem('isLogedIn', JSON.stringify(isLogedIn));
 //console.log(isLogedIn)
 
