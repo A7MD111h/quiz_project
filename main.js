@@ -37,7 +37,7 @@ if(!isLogedIn) {
   startBtn.removeEventListener("click", showLogin);
   startBtn.textContent = "Login to start!";
   startBtn.addEventListener("click", () => {
-    window.location.href = "log_in/login.html";
+    window.location.href = "login/login.html";
   })
 }else{
   startBtn.addEventListener("click", showLogin);
@@ -58,7 +58,7 @@ if(localStorage.emailInUse){
 check();
 
 btn_logout.addEventListener("click", (e) => {
-  window.location.href = "../index.html";
+  window.location.href = "./index.html";
 
   localStorage.isLogedIn = "false";
   localStorage.emailInUse = "";
@@ -70,6 +70,7 @@ function check(){
     // show log out hide log in
     btn_login.style.display = "none";
     btn_logout.style.display = "inline-block";
+    //btn_login.style.curuser ="pointer";
   } else {
     // show log in hide log out
 
@@ -85,7 +86,7 @@ function check(){
 
 function showLogin() {
   if (userData.answers != undefined || userData.answers != null && isLogedIn) {
-    window.location.href = "Result/Result.html";
+    window.location.href = "./Result/Result.html";
   } else {
     popupInfo.classList.add("active");
     main.classList.add("active");
@@ -549,12 +550,12 @@ function updateLocal() {
 
 // once the user finish this function is gonna calculate the user result and the percentage
 function showResultBox() {
-
   quizBox.classList.remove("active");
   resultBox.classList.add("active");
 
   let scoreText = document.querySelector(".score-text");
   scoreText.textContent = `Your Score ${userScore} out of 10`;
+
   // this is the percentage calculation
   let circularProgress = document.querySelector(".circular-progress");
   let progressValue = document.querySelector(".progress-value");

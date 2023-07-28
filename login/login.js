@@ -118,6 +118,7 @@ buttonsignUp2.addEventListener("click", (event) => {
   } else {
     console.log("login succes");
     window.location.href = "../index.html";
+    //return false;
   }
 });
 
@@ -151,7 +152,7 @@ function login() {
     }
   } else {
     alertWrong(email,"No user data found. Please register first.");
-    return false;
+   return false;
   }
 }
 
@@ -167,5 +168,6 @@ buttonlogin.addEventListener("click", (event) => {
     console.log("login succes");
 
     window.location.href = "../index.html";
+    //return false;
   }
 });

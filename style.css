@@ -97,7 +97,10 @@ body {
     margin-bottom: 30px;
     text-align: justify;
 }
+#btn_logout{
+    cursor: pointer;
 
+}
 .home-content .start-btn {
     width: 190px;
     height: 55px;
