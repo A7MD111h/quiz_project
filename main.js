@@ -16,7 +16,7 @@ let userData = JSON.parse(
   localStorage.getItem("userData") ? localStorage.getItem("userData") : "[]"
 );
 let posiQ;
-if (userData.length > 0) posiQ = userData[0].position;
+let isLogedIn = JSON.parse(localStorage.getItem('isLogedIn'));
 
 if (userData) {
   console.log(userData);
@@ -29,15 +29,61 @@ if (localStorage.isLogedIn == null || localStorage.isLogedIn == undefined) {
   localStorage.isLogedIn = "false";
 }
 
-// this is the start test button
-if (localStorage.userData) {
+if(!isLogedIn) {
+  startBtn.removeEventListener("click", showLogin);
+  startBtn.textContent = "Login to start!";
+  startBtn.addEventListener("click", () => {
+    window.location.href = "./login/login.html";
+    
+  })
+}else{
   startBtn.addEventListener("click", showLogin);
 }
+if(localStorage.emailInUse){
+  if (Array.isArray(userData)) {
+    userData = userData.filter((e) => e.email === localStorage.emailInUse);
+    console.log(userData)
+    userData = userData[0];
+    posiQ = userData.position;
+    welcomeName = userData.username;
+    console.log(welcomeName);
+    homeUserName.textContent =`Welcome ${userData.username}`
+  }
+}
+
+
+check();
+
+btn_logout.addEventListener("click", (e) => {
+  window.location.href = "./index.html";
+
+  localStorage.isLogedIn = "false";
+  localStorage.emailInUse = "";
+  check();
+});
+function check(){
+  console.log(12312)
+  if (isLogedIn) {
+    // show log out hide log in
+    btn_login.style.display = "none";
+    btn_logout.style.display = "inline-block";
+    //btn_login.style.curuser ="pointer";
+  } else {
+    // show log in hide log out
+
+    btn_login.style.display = "inline-block";
+
+    btn_logout.style.display = "none";
+  }
+
+}
+
+
+
 
 function showLogin() {
-  if (userData.answers != undefined || userData.answers != null) {
-    window.location.href = "Result/Result.html";
-    // showResultBox();
+  if (userData.answers != undefined || userData.answers != null && isLogedIn) {
+    window.location.href = "./Result/Result.html";
   } else {
     popupInfo.classList.add("active");
     main.classList.add("active");
@@ -57,6 +103,7 @@ exitBtn.addEventListener("click", showPopUp);
 function showPopUp() {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
+  window.location.href = "./index.html";
 }
 
 //hiding start btn
@@ -78,6 +125,9 @@ goHomeBtn.onclick = () => {
   showQuestions(questionCount);
   questionCounter(questionNumb);
   hide();
+  window.location.href = "./index.html";
+  btn_login.style.display = "none";
+
 };
 
 let questionCount = 0;
@@ -542,26 +592,4 @@ tryAgainBtn.addEventListener("click", function () {
 
 let btn_login = document.querySelector("#btn_login");
 
-check();
-
-btn_logout.addEventListener("click", (e) => {
-  window.location.href = "../index.html";
-
-  localStorage.isLogedIn = "false";
-  localStorage.emailInUse = "";
-  check();
-});
-function check(){
-  if (JSON.parse(localStorage.isLogedIn)) {
-    // show log out hide log in
-    btn_login.style.display = "none";
-    btn_logout.style.display = "inline-block";
-  } else {
-    // show log in hide log out
-
-    btn_login.style.display = "inline-block";
-
-    btn_logout.style.display = "none";
-  }
-
-}
+// <111111>
