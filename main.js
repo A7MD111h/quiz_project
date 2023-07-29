@@ -10,31 +10,34 @@ let tryAgainBtn = document.querySelector(".tryAgain-btn");
 let goHomeBtn = document.querySelector(".goHome-btn");
 let btn_logout = document.getElementById("btn_logout");
 let nextBtn = document.querySelector(".next-btn");
+let btn_login = document.querySelector("#btn_login");
+let homeUserName = document.querySelector("#homeUserName");
+let navbar = document.querySelector(".na_0");
+
+//  homeUserName = localStorage.getItem("useDate",getItem(useDate))
+// let welcomeName = JSON.parse(localStorage.getItem("useDate"))
+// console.log(welcomeName);
+
 
 var quizshow;
-let userData = JSON.parse(
-  localStorage.getItem("userData") ? localStorage.getItem("userData") : "[]"
-);
+let userData = JSON.parse(localStorage.getItem("userData") ? localStorage.getItem("userData") : "[]");
+
+let welcomeName;
 let posiQ;
 let isLogedIn = JSON.parse(localStorage.getItem('isLogedIn'));
+  
+// console.log(isLogedIn)
 
-if (userData) {
-  console.log(userData);
-  userData = userData.filter((e) => e.email === localStorage.emailInUse);
-  userData = userData[0];
-}
-
-if (localStorage.isLogedIn == null || localStorage.isLogedIn == undefined) {
-  console.log(123);
+if (isLogedIn == null || isLogedIn == undefined) {
   localStorage.isLogedIn = "false";
 }
+check()
 
 if(!isLogedIn) {
   startBtn.removeEventListener("click", showLogin);
   startBtn.textContent = "Login to start!";
   startBtn.addEventListener("click", () => {
     window.location.href = "./login/login.html";
-    
   })
 }else{
   startBtn.addEventListener("click", showLogin);
@@ -48,6 +51,8 @@ if(localStorage.emailInUse){
     welcomeName = userData.username;
     console.log(welcomeName);
     homeUserName.textContent =`Welcome ${userData.username}`
+    startBtn.textContent = "Start Quiz";
+    
   }
 }
 
@@ -55,7 +60,7 @@ if(localStorage.emailInUse){
 check();
 
 btn_logout.addEventListener("click", (e) => {
-  window.location.href = "./index.html";
+  window.location.href = "../index.html";
 
   localStorage.isLogedIn = "false";
   localStorage.emailInUse = "";
@@ -67,7 +72,6 @@ function check(){
     // show log out hide log in
     btn_login.style.display = "none";
     btn_logout.style.display = "inline-block";
-    //btn_login.style.curuser ="pointer";
   } else {
     // show log in hide log out
 
@@ -83,27 +87,21 @@ function check(){
 
 function showLogin() {
   if (userData.answers != undefined || userData.answers != null && isLogedIn) {
-    window.location.href = "./Result/Result.html";
+    window.location.href = "Result/Result.html";
   } else {
     popupInfo.classList.add("active");
     main.classList.add("active");
     let home = (document.querySelector("#home").style.display = "none");
   }
 }
-let isLogedIn = JSON.parse(localStorage.isLogedIn);
-if (!isLogedIn) {
-  startBtn.textContent = "Login to start!";
-  startBtn.addEventListener("click", () => {
-    window.location.href = "log_in/login.html";
-  });
-}
+
 
 // this is the exit test button
 exitBtn.addEventListener("click", showPopUp);
 function showPopUp() {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
-  window.location.href = "./index.html";
+  window.location.href = "../index.html";
 }
 
 //hiding start btn
@@ -125,7 +123,7 @@ goHomeBtn.onclick = () => {
   showQuestions(questionCount);
   questionCounter(questionNumb);
   hide();
-  window.location.href = "./index.html";
+  window.location.href = "../index.html";
   btn_login.style.display = "none";
 
 };
@@ -135,7 +133,6 @@ let questionNumb = 1;
 let userScore = 0;
 let countQt = 1;
 
-console.log(quizBox);
 let questions = [];
 if (posiQ === "HTML") {
   /////////////////////////////////////HTML Question//////////////////////////////////////
@@ -435,7 +432,7 @@ continueBtn.onclick = () => {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
   quizBox.classList.add("active");
-
+  navbar.style.display = "none";
   showQuestions(questionCount);
   questionCounter(1);
   startCountdown();
@@ -587,9 +584,7 @@ function showResultBox() {
   }, speed);
 }
 tryAgainBtn.addEventListener("click", function () {
-  window.open("./Result/Result.html", "_blank");
+  window.open("./Result/Result.html");
 });
 
-let btn_login = document.querySelector("#btn_login");
 
-// <111111>
