@@ -110,6 +110,12 @@ form.sign-in-form {
   font-weight: 500;
 }
 
+input.wrong{
+}
+input.wrong::placeholder{
+  color: #ff0000 !important;
+}
+
 .forget_password {
   padding: 0.7rem 0;
   font-size: 1rem;
@@ -432,10 +438,12 @@ form.sign-in-form {
   .container:before {
     bottom: 72%;
     left: 50%;
+    /* overflow: auto; */
   }
 
   .container.sign-up-mode:before {
-    bottom: 28%;
-    left: 50%;
+    margin-top: 10px;
+    /* bottom: 28%; */
+    left: 40%;
   }
 }

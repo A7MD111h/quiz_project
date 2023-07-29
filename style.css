@@ -185,6 +185,7 @@ body {
 
 .quiz-section.active {
     left: 0;
+    
 }
 
 .quiz-section .quiz-box {
@@ -521,24 +522,24 @@ body {
         padding: 15px; 
     }  
     .quiz-box.active {
-        width: 90%; 
+        width: 95%; 
         font-size: 14px; 
-        padding: 10px 15px; 
+       
     }
 
     .quiz-header {
-        flex-direction: column; 
+        
         align-items: center;
-        padding: 10px 0; 
+        padding: 5px 0; 
         margin-bottom: 20px;
     }
 
     .quiz-header .header-score {
          margin-top: 10px; 
     }
-
-    .question-text {
-        font-size: 18px; 
+    .quiz-box .question-text {
+        font-size: 15px !important; 
+        font-weight: 100px !important;
     }
 
     .option-list .option {
@@ -546,9 +547,9 @@ body {
     }
 
     .quiz-footer {
-        flex-direction: column; 
+        
         align-items: center; 
-        margin-top: 20px; 
+        margin-top: 10px; 
     }
 
     .quiz-footer .question-total {

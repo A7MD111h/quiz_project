@@ -60,7 +60,7 @@ if(localStorage.emailInUse){
 check();
 
 btn_logout.addEventListener("click", (e) => {
-  window.location.href = "../index.html";
+  window.location.href = "index.html";
 
   localStorage.isLogedIn = "false";
   localStorage.emailInUse = "";
@@ -101,7 +101,7 @@ exitBtn.addEventListener("click", showPopUp);
 function showPopUp() {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
-  window.location.href = "../index.html";
+  window.location.href = "./index.html";
 }
 
 //hiding start btn
@@ -123,7 +123,7 @@ goHomeBtn.onclick = () => {
   showQuestions(questionCount);
   questionCounter(questionNumb);
   hide();
-  window.location.href = "../index.html";
+  window.location.href = "index.html";
   btn_login.style.display = "none";
 
 };
@@ -437,6 +437,7 @@ continueBtn.onclick = () => {
   questionCounter(1);
   startCountdown();
   //   headerScore();
+  
 };
 
 let time = 3.5;
