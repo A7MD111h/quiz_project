@@ -10,96 +10,53 @@ let tryAgainBtn = document.querySelector(".tryAgain-btn");
 let goHomeBtn = document.querySelector(".goHome-btn");
 let btn_logout = document.getElementById("btn_logout");
 let nextBtn = document.querySelector(".next-btn");
-let btn_login = document.querySelector("#btn_login");
-let homeUserName = document.querySelector("#homeUserName");
-
-//  homeUserName = localStorage.getItem("useDate",getItem(useDate))
-// let welcomeName = JSON.parse(localStorage.getItem("useDate"))
-// console.log(welcomeName);
-
 
 var quizshow;
 let userData = JSON.parse(
   localStorage.getItem("userData") ? localStorage.getItem("userData") : "[]"
 );
-
-let welcomeName;
 let posiQ;
-let isLogedIn = JSON.parse(localStorage.isLogedIn);
-console.log(isLogedIn)
+if (userData.length > 0) posiQ = userData[0].position;
 
-if (isLogedIn == null || isLogedIn == undefined) {
+if (userData) {
+  console.log(userData);
+  userData = userData.filter((e) => e.email === localStorage.emailInUse);
+  userData = userData[0];
+}
+
+if (localStorage.isLogedIn == null || localStorage.isLogedIn == undefined) {
+  console.log(123);
   localStorage.isLogedIn = "false";
 }
-check()
 
-if(!isLogedIn) {
-  startBtn.removeEventListener("click", showLogin);
-  startBtn.textContent = "Login to start!";
-  startBtn.addEventListener("click", () => {
-    window.location.href = "log_in/login.html";
-  })
-}else{
+// this is the start test button
+if (localStorage.userData) {
   startBtn.addEventListener("click", showLogin);
 }
-if(localStorage.emailInUse){
-  if (Array.isArray(userData)) {
-    userData = userData.filter((e) => e.email === localStorage.emailInUse);
-    console.log(userData)
-    userData = userData[0];
-    posiQ = userData.position;
-    welcomeName = userData.username;
-    console.log(welcomeName);
-    homeUserName.textContent =`Welcome ${userData.username}`
-  }
-}
-
-
-check();
-
-btn_logout.addEventListener("click", (e) => {
-  window.location.href = "../index.html";
-
-  localStorage.isLogedIn = "false";
-  localStorage.emailInUse = "";
-  check();
-});
-function check(){
-  console.log(12312)
-  if (isLogedIn) {
-    // show log out hide log in
-    btn_login.style.display = "none";
-    btn_logout.style.display = "inline-block";
-  } else {
-    // show log in hide log out
-
-    btn_login.style.display = "inline-block";
-
-    btn_logout.style.display = "none";
-  }
-
-}
-
-
-
 
 function showLogin() {
-  if (userData.answers != undefined || userData.answers != null && isLogedIn) {
+  if (userData.answers != undefined || userData.answers != null) {
     window.location.href = "Result/Result.html";
+    // showResultBox();
   } else {
     popupInfo.classList.add("active");
     main.classList.add("active");
     let home = (document.querySelector("#home").style.display = "none");
   }
 }
-
+let isLogedIn = JSON.parse(localStorage.isLogedIn);
+if (!isLogedIn) {
+  startBtn.textContent = "Login to start!";
+  startBtn.addEventListener("click", () => {
+    window.location.href = "log_in/login.html";
+  });
+}
 
 // this is the exit test button
 exitBtn.addEventListener("click", showPopUp);
 function showPopUp() {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
-  window.location.href = "../index.html";
 }
 
 //hiding start btn
@@ -121,9 +78,6 @@ goHomeBtn.onclick = () => {
   showQuestions(questionCount);
   questionCounter(questionNumb);
   hide();
-  window.location.href = "../index.html";
-  btn_login.style.display = "none";
-
 };
 
 let questionCount = 0;
@@ -131,6 +85,7 @@ let questionNumb = 1;
 let userScore = 0;
 let countQt = 1;
 
+console.log(quizBox);
 let questions = [];
 if (posiQ === "HTML") {
   /////////////////////////////////////HTML Question//////////////////////////////////////
@@ -582,7 +537,31 @@ function showResultBox() {
   }, speed);
 }
 tryAgainBtn.addEventListener("click", function () {
-  window.open("./Result/Result.html");
+  window.open("./Result/Result.html", "_blank");
 });
 
+let btn_login = document.querySelector("#btn_login");
 
+check();
+
+btn_logout.addEventListener("click", (e) => {
+  window.location.href = "../index.html";
+
+  localStorage.isLogedIn = "false";
+  localStorage.emailInUse = "";
+  check();
+});
+function check(){
+  if (JSON.parse(localStorage.isLogedIn)) {
+    // show log out hide log in
+    btn_login.style.display = "none";
+    btn_logout.style.display = "inline-block";
+  } else {
+    // show log in hide log out
+
+    btn_login.style.display = "inline-block";
+
+    btn_logout.style.display = "none";
+  }
+
+}
