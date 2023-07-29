@@ -17,25 +17,26 @@
             top: 0;
             z-index: 4;
             overflow: hidden;
-            padding-top: 1rem;
+            /* background-color: #19152B; */
         }
 
         .navbar {
             width: 85%;
             margin: 0 auto;
-            font-size: larger;
+            /* background-color: #19152B; */
+            /* overflow: hidden; */
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+            /* padding: 1rem; */
+            /* position: fixed;
+        top: 0;
+        z-index:4 ; */
 
-         .divlogo  {
-          width: 150px;
-        height: 70px;
         }
 
         .navbar img {
-            height: 100%;
+            height: 40px;
             width: 100%;
         }
 
@@ -74,7 +75,7 @@
 <body>
 
     <main class="main">
-        <!-- <header class="header"> -->
+        <header class="header">
             <nav class="na_0 ">
                 <div class="navbar ">
                     <div class="divlogo">
@@ -82,27 +83,14 @@
                     </div>
                     <ul class="ul_nav">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="/login/login.html" id="btn_login">log in</a></li>
-                        <li><a  id="btn_logout" >log out</a></li>
+                        <li><a href="./login/login.html" id="btn_login">log in</a></li>
+                        <li><a  id="btn_logout" style="display: none;">log out</a></li>
                     </ul>
                 </div>
             </nav>
-        <!-- </header> -->
-        
-        <section id="home" class="home">
-            <div class="home-content">
-                <h1><span id="homeUserName">Welcome to Quizit</span></h1>
-                <p>As part of our hiring process, we value skill and knowledge assessment to ensure that we bring in
-                    talented
-                    individuals who align with our company values and possess the expertise required to excel in
-                    their roles. The test
-                    website we're developing will allow us to evaluate candidates in a fair and comprehensive
-                    manner, helping us find
-                    the perfect fit for our team. </p>
-                <button class="start-btn">Start Quiz</button>
-            </div>
-        </section>
-        
+        </header>
+
+
         <div class="container">
             <section class="quiz-section">
                 <div class="quiz-box" id="quiz-boxe">
@@ -150,6 +138,19 @@
                 </div>
             </section>
 
+            <section id="home" class="home">
+                <div class="home-content">
+                    <h1><span id="homeUserName">Welcome</span></h1>
+                    <p>As part of our hiring process, we value skill and knowledge assessment to ensure that we bring in
+                        talented
+                        individuals who align with our company values and possess the expertise required to excel in
+                        their roles. The test
+                        website we're developing will allow us to evaluate candidates in a fair and comprehensive
+                        manner, helping us find
+                        the perfect fit for our team. </p>
+                    <button class="start-btn">Start Quiz</button>
+                </div>
+            </section>
         </div>
     </main>
 

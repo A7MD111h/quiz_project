@@ -13,6 +13,36 @@ body {
     overflow: hidden;
 }
 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    filter: drop-shadow(0 0 5px #09001d);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
 .navbar a:hover, .navbar a.active {
     color: #c40094;
 }
@@ -38,16 +68,17 @@ body {
 }
 
 .home {
+    position: relative;
+    left: -50%;
     height: 100vh;
     width: 100%;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .home-content {
-    width: 70%;
+    max-width: 600px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -55,7 +86,7 @@ body {
 
 .home-content h1 {
     font-size: 60px;
-    font-weight: 600;
+    font-weight: 700;
     text-shadow: 0 0 10px rgb(0,0,0, .3);
 }
 
@@ -63,10 +94,13 @@ body {
     font-size: 16px;
     text-align: center;
     text-shadow: 0 0 10px rgb(0,0,0, .3);
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
     text-align: justify;
 }
+#btn_logout{
+    cursor: pointer;
 
+}
 .home-content .start-btn {
     width: 190px;
     height: 55px;
@@ -84,9 +118,45 @@ body {
 }
 
 .home-content .start-btn:hover {
-    background: rgb(14,11,50);
+    background: #09001d;
     box-shadow: none;
 }
+
+
+.About_us {
+    position: relative;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    background-image: url("Banner+background\ \(1\).png");
+}
+
+.About_us-content{
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.About_us-content h1 {
+    font-size:60px ;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgb(0,0,0, .3);
+}
+
+.About_us-content p {
+    font-size: 1rem;
+    text-align: center;
+    width: 50rem;
+    text-shadow: 0 0 10px rgb(0,0,0, .3);
+    margin-bottom: 10rem;
+    text-align: justify;
+}
+
 .popup-info {
     position: absolute;
     top: 50%;
@@ -169,19 +239,14 @@ body {
     position: relative;
     left: -100%;
     width: 100%;
-    /* background: #09001d; */
+    background: #09001d;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
     transition: .8s ease-in-out;
     transition-delay: .25s;
-    background: rgb(31,37,124);
-    background-image: -o-linear-gradient(330deg, rgb(14,11,50) 0%, rgb(107,44,135) 100%), -o-linear-gradient(330deg, rgb(135,40,113) 0%, rgb(56,23,84) 100%);
-    background-image: linear-gradient(120deg, rgb(14,11,50) 0%, rgb(107,44,135) 100%), linear-gradient(120deg, rgb(135,40,113) 0%, rgb(56,23,84) 100%);
-  
 }
-
 
 .quiz-section.active {
     left: 0;
@@ -191,7 +256,7 @@ body {
     position: relative;
     width: 500px;
     background: transparent;
-    border: 2px solid #950170;
+    border: 2px solid #c40094;
     border-radius: 6px;
     display:flex ;
     flex-direction: column;
@@ -201,7 +266,6 @@ body {
     transform: scale(.9); 
     transition: .3s ease;
     transition-delay: 0s;
-    background-color: #09001d;    
 }
 .quiz-section .quiz-box.active {
     opacity: 1;
@@ -214,7 +278,7 @@ body {
 .quiz-box h1 {
     font-size: 32px;
     text-align: center;
-    background: #c40094;
+    background: linear-gradient(45deg, transparent, #c40094, transparent);
     border-radius: 6px;
 }
 
@@ -333,7 +397,6 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: .3s ease;
-    background-color: rgb(14,11,50);
 }
 
 .quiz-section .result-box.active {
@@ -423,188 +486,90 @@ body {
 
 .option.selected{
     background: #09001d !important;
-    color: #950170 !important;
-    border-color: #950170 !important;
+    color: #e5ffee !important;
+    border-color: #e5ffee !important;
 }
 
 
-@media screen and (max-width: 600px){
+  @media (max-width: 576px) {
+    .header {
+      padding: 10px 5%;
+    }
   
-    body{
-        width: 100%;
-        margin: 0 auto;
-        background-image: url('Banner+background\ \(1\).png');
-        background-size: cover;
-        background-repeat: no-repeat; 
-        background-position: center; 
+    .navbar {
+      display: none;
     }
-    .main{
-   
-        background: none;
-    }
-    /* .main.active {
-        filter: blur(0px); 
-      } */
-    .na_0 {
-       padding-top: 1rem;
-       padding-bottom: 1rem;
-
-    }
-    .navbar img {
-        height: 30px; 
-    }
+  
     .home-content h1 {
-         font-size: 30px;
+      font-size: 40px;
     }
-    
-    .home {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  
+    .About_us-content h1 {
+      font-size: 40px;
     }
-
-    .home-content {
-        width: 85%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        padding-bottom: 25%;
+  
+    /* Adjust other styles for small devices as needed */
+  }
+  
+  /* Medium devices (576px - 768px) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    .header {
+      padding: 15px 5%;
     }
-
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      top: 55px;
+      right: 5%;
+    }
+  
+    .navbar a {
+      margin: 10px 0;
+    }
+  
     .home-content h1 {
-        font-size: 30px;
-        font-weight: 200;
-        text-shadow: 0 0 10px rgb(0,0,0, .3);
-        margin-bottom: 1rem;
-
+      font-size: 50px;
     }
-    .home-content p {
-        font-size: 0.7rem;
-        text-align: center;
-        text-shadow: 0 0 10px rgb(0,0,0, .3);
-        margin-bottom: 0.7rem;
-        text-align: justify;
+  
+    .About_us-content h1 {
+      font-size: 50px;
     }
-    .home-content .start-btn {
-        font-size: 14px; 
-        width: 150px; 
-        height: 40px; 
+  
+    /* Adjust other styles for medium devices as needed */
+  }
+  
+  /* Large devices (768px - 992px) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .header {
+      padding: 15px 5%;
     }
-    .popup-info {
-        width: 90%; 
-        font-size: 14px; 
+  
+    .navbar {
+      justify-content: flex-end;
     }
-    .popup-info h2 {
-        font-size: 24px; 
+  
+    .home-content h1 {
+      font-size: 50px;
     }
-    .popup-info .info {
-        font-size: 12px; 
+  
+    .About_us-content h1 {
+      font-size: 50px;
     }
-    .popup-info .btn-group .info-btn {
-        font-size: 12px; 
-        height: 30px; 
-    }  
-    .quiz-section {
-        left: 0;  
-        height: 100%;  
-        align-items: center;  
-        justify-content: center; 
-        padding: 10px; 
-        overflow: hidden; 
+  
+    /* Adjust other styles for large devices as needed */
+  }
+  
+  /* Extra-large devices (992px - 1200px) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+    .home-content h1 {
+      font-size: 60px;
     }
-    
-    .quiz-box {
-        width: 100%;  
-        max-width: 400px; 
-        font-size: 14px; 
-        padding: 15px; 
-    }  
-    .quiz-box.active {
-        width: 90%; 
-        font-size: 14px; 
-        padding: 10px 15px; 
+  
+    .About_us-content h1 {
+      font-size: 60px;
     }
-
-    .quiz-header {
-        flex-direction: column; 
-        align-items: center;
-        padding: 10px 0; 
-        margin-bottom: 20px;
-    }
-
-    .quiz-header .header-score {
-         margin-top: 10px; 
-    }
-
-    .question-text {
-        font-size: 18px; 
-    }
-
-    .option-list .option {
-        padding: 8px; 
-    }
-
-    .quiz-footer {
-        flex-direction: column; 
-        align-items: center; 
-        margin-top: 20px; 
-    }
-
-    .quiz-footer .question-total {
-        font-size: 14px; 
-        margin-bottom: 10px;
-    }
-
-    .quiz-footer .next-btn {
-        font-size: 14px; 
-        width: 100px; 
-        height: 35px; 
-    }
-    .result-box {
-        width: 90%; 
-        font-size: 14px;  
-        padding: 10px 15px; 
-    }
-
-    .result-box h2 {
-        font-size: 24px; 
-    }
-
-    .percentage-container {
-        width: 100%;  
-        max-width: 250px;  
-        margin: 10px 0 20px;  
-    }
-
-    .circular-progress {
-        width: 100%;  
-        height: 100px;  
-    }
-
-    .progress-value {
-        font-size: 36px;  
-    }
-
-    .score-text {
-        font-size: 18px;  
-    }
-    .buttons {
-        width: 80%;
-        flex-direction: column;  
-        align-items: center;  
-    }
-
-    .buttons button {
-        width: 80%;  
-        height: 40px; 
-        margin: 10px 0;  
-    }
-
-
-}
-
-
-#btn_logout{
-    cursor: pointer !important;
-}
+  
+    /* Adjust other styles for extra-large devices as needed */
+  }
